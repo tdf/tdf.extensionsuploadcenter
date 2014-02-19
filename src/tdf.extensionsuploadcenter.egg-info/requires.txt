@@ -1,0 +1,12 @@
+setuptools
+Products.CMFPlone
+plone.app.dexterity [grok, relations]
+plone.app.referenceablebehavior
+plone.app.relationfield
+plone.namedfile [blobs]
+plone.app.registry
+collective.dexteritytextindexer
+cioppino.twothumbs
+
+[test]
+plone.app.testing[robot]>=4.2.2

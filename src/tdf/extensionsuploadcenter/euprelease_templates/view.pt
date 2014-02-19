@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tdf.extensionsuploadcenter">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+         <h1 class="documentFirstHeading"><span tal:content="context/title" /> - <span tal:content="context/releasenumber" /></h1>
+
+
+      <p class="documentDescription" tal:content="context/description/title" />
+        <h4 class="extcenter" i18n:translate="title_release_details">Release Details</h4>
+      <p class="documentDescription" tal:content="structure view/w/details/render" />
+     <h4 class="tucenter" i18n:translate="title_development_status">Development Status</h4>
+      <div class="tucenterdevstat" tal:content="structure view/w/developmentstatus_choice/render" />
+
+     <h4 class="tucenterlicense" i18n:translate="title_license_s">License(s)</h4>
+      <div class="tucenterlicense" tal:content="structure view/w/licenses_choice/render" />
+      <h4 class="tucentercompatibility" i18n:translate="title_compatibility">Compatibility</h4>
+      <div class="tucentercompatibility" tal:content="structure view/w/compatibility_choice/render" />
+        <h4 class="documentSecondheading">Changelog</h4>
+        <div class="eupcenterchangelog" tal:content="structure view/w/changelog/render" />
+
+        <h2 class="eupcenter" i18n:translate="title_available_downloads">Available Downloads</h2>
+
+      <div  class="eupcenterfile">
+
+
+
+      <p tal:condition="context/file"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice/render" /></p>
+
+       <p tal:condition="context/file1"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file1/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file1/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice1/render" /></p>
+
+        <p tal:condition="context/file2"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file2/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file2/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice2/render" /></p>
+
+      <p tal:condition="context/file3"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file3/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file3/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice3/render" /></p>
+
+      <p tal:condition="context/file4"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file4/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file4/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice4/render" /></p>
+
+       <p tal:condition="context/file5"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file5/filename}"><img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file5/filename}">
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice5/render" /></p>
+        </div>
+
+      <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
+      <div class="eupcenterlegaldownload" tal:content="structure context/legal_downloaddisclaimer/output" />
+
+</tal:main-macro>
+</metal:main>
+
+</body>
+</html>

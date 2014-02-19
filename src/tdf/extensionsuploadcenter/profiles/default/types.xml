@@ -1,0 +1,6 @@
+<object name="portal_types">
+    <object name="tdf.extensionsuploadcenter.eupcenter" meta_type="Dexterity FTI" />
+    <object name="tdf.extensionsuploadcenter.eupproject" meta_type="Dexterity FTI" />
+    <object name="tdf.extensionsuploadcenter.euprelease" meta_type="Dexterity FTI" />
+
+</object>

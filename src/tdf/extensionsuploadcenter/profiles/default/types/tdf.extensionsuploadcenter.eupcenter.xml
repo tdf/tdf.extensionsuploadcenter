@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<object name="tdf.extensionsuploadcenter.eupcenter" meta_type="Dexterity FTI"
+        i18n:domain="tdf.extensionsuploadcenter" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+    <!-- Basic metadata -->
+    <property name="title" i18n:translate="">Extension Center</property>
+    <property name="description" i18n:translate="">An extension center</property>
+
+    <property name="allow_discussion">True</property>
+    <property name="global_allow">True</property>
+    <property name="filter_content_types">True</property>
+    <property name="allowed_content_types">
+        <element value="tdf.extensionsuploadcenter.eupproject" />
+    </property>
+
+    <!-- schema interface -->
+    <property name="schema">tdf.extensionsuploadcenter.eupcenter.IEUpCenter</property>
+
+    <!-- class used for content items -->
+    <property name="klass">plone.dexterity.content.Container</property>
+
+    <!-- add permission -->
+    <property name="add_permission">cmf.AddPortalContent</property>
+
+    <!-- enabled behaviors -->
+    <property name="behaviors">
+        <element value="plone.app.content.interfaces.INameFromTitle" />
+        <!-- IReferenceable might not be available, but it will not break. -->
+        <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+
+        <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable" />
+        <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
+        <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
+    </property>
+
+    <!-- View information -->
+    <property name="default_view">view</property>
+    <property name="default_view_fallback">False</property>
+    <property name="view_methods">
+        <element value="view"/>
+    </property>
+
+    <!-- Method aliases -->
+    <alias from="(Default)" to="(selected layout)"/>
+    <alias from="edit" to="@@edit"/>
+    <alias from="sharing" to="@@sharing"/>
+    <alias from="view" to="@@view"/>
+
+    <!-- Actions -->
+    <action title="View" action_id="view" category="object" condition_expr=""
+            url_expr="string:${object_url}" visible="True">
+        <permission value="View"/>
+    </action>
+    <action title="Edit" action_id="edit" category="object" condition_expr=""
+            url_expr="string:${object_url}/edit" visible="True">
+        <permission value="Modify portal content"/>
+    </action>
+</object>

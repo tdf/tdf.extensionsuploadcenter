@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tdf.extensionsuploadcenter">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+         <h1 class="documentFirstHeading"><span tal:content="context/title" /></h1>
+        <p class="documentDescription"><span tal:content="context/description" /></p>
+        <h2 class="documentSecondHeading">Project Description</h2>
+        <p class="documentDescription" tal:content="structure view/w/details/render" />
+        <h3>Category/Categories</h3>
+        <div tal:content="structure view/w/category_choice/render" />
+        <h3 tal:condition="context/homepage">Homepage of the Project</h3>
+        <div tal:content="context/homepage" />
+
+<h4>Logo</h4>
+
+      <div class="eupcenterprojectlogo" width="70px" tal:define="projectlogo nocall:context/project_logo"
+                   tal:condition="nocall:projectlogo"
+                   class="tdfeupcenter-projectlogo">
+                   <img tal:define="scale context/@@images"
+                        tal:replace="structure python: scale.scale('project_logo',
+                        width=90, direction='down').tag()" />
+      </div>
+        <h4>Screenshot</h4>
+
+              <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
+                   tal:condition="nocall:screenshot">
+              <img tal:define="scales context/@@images"
+                   tal:replace="structure python: scales.tag('screenshot',
+                        width=250, height=200, direction='down')" />
+      </div>
+
+        <table class="eupcenterprojecttable" border="1" width="100%">
+            <thead>
+            <tr bgcolor="#40FB27">
+                <td><h4 i18n:translate="title_extension">Extension</h4></td>
+                <td><h4 i18n:translate="title_file">File</h4></td>
+                <td><h4 i18n:translate="title_description">Description</h4></td>
+                <td><h4 i18n:translate="title_compatiblity">Compatibility</h4></td>
+                <td><h4 i18n:translate="title_platform">Platform(s)</h4></td>
+                <td><h4 i18n:translate="title_lisenses">License(s)</h4></td>
+                <td><h4 i18n:translate="title_development_status">Development <br />Status</h4></td>
+            </tr>
+            </thead>
+            <tbody tal:repeat="item container/values">
+            <tr bgcolor="#EEEEEE" tal:condition="repeat/item/even">
+                <td> <h4><a tal:attributes="href item/getId">
+           <span tal:content="item/Title" /> - <span tal:content="item/releasenumber" /></a></h4>
+</td>
+                <td><span tal:condition="item/file">
+                    <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
+                        <img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a>
+                    </span>
+</td>
+                <td tal:content="item/Description">Description</td>
+
+                <td>
+<ul><tal:loop repeat="compatibility_choice item/compatibility_choice">
+    <li><div tal:content="compatibility_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td>
+<ul><tal:loop repeat="platform_choice item/platform_choice">
+    <li><div tal:content="platform_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td>
+<ul><tal:loop repeat="licenses_choice item/licenses_choice">
+    <li><div tal:content="licenses_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td tal:content="item/developmentstatus_choice">Development Status</td>
+            </tr>
+
+            <tr bgcolor="#F1FB9B" tal:condition="repeat/item/odd">
+                <td> <h4><a tal:attributes="href item/getId">
+                <span tal:content="item/Title" /> - <span tal:content="item/releasenumber" /></a></h4>
+                </td>
+                <td><span tal:condition="item/file">
+                    <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
+                        <img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a>
+                    </span>
+</td>
+                <td tal:content="item/Description">Description</td>
+
+                <td>
+<ul><tal:loop repeat="compatibility_choice item/compatibility_choice">
+    <li><div tal:content="compatibility_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td>
+<ul><tal:loop repeat="platform_choice item/platform_choice">
+    <li><div tal:content="platform_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td>
+<ul><tal:loop repeat="licenses_choice item/licenses_choice">
+    <li><div tal:content="licenses_choice"/></li>
+    </tal:loop></ul>
+</td>
+<td tal:content="item/developmentstatus_choice">Development Status</td>
+            </tr>
+
+            </tbody>
+
+
+
+        </table>
+
+
+      <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
+      <div class="eupcenterlegaldownload" tal:content="structure context/legal_downloaddisclaimer/output" />
+
+
+</tal:main-macro>
+</metal:main>
+
+</body>
+</html>

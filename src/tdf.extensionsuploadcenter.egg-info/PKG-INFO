@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: tdf.extensionsuploadcenter
+Version: 0.1
+Summary: The LibreOffice Extension upload center
+Home-page: http://github.com/andreasma
+Author: Andreas Mantke
+Author-email: maand@gmx.de
+License: gpl
+Description: .. contents::
+        
+        Introduction
+        ============
+        
+        A Plone add-on for the new LibreOffice Extension upload center.
+        Contributors
+        ============
+        
+        Andreas Mantke, Author
+        
+        Changelog
+        =========
+        
+        0.1-dev (unreleased)
+        --------------------
+        
+        - Package created using templer
+          [Andreas Mantke]
+        
+Keywords: Plone AddOn LibreOffice Extension Document Foundation TDF
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
