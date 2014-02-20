@@ -104,14 +104,15 @@
                             <ul class="downloads">
                                <li tal:repeat="result batch">
                                    <tal:entry
-						                define="project result/getObject;
+						                define="obj result/getObject;
+						                project python:obj.aq_parent;
 						                url result/getURL;
 							            projectURL project/absolute_url;
 							            result_type result/portal_type;
 							            zoomid   python:project.id.replace('.', '_');
 							            screenshot   project/getScreenshot | nothing">
                                        <h3 style="border-top: none">
-                                           <a href="" tal:attributes="href projectURL;" 	tal:content="result/pretty_title_or_id">
+                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
 								           <tal:comment replace="nothing">Product One</tal:comment></a>
                                        </h3>
                                        <div tal:content="structure project/@@rate-if-you-dare"/>
