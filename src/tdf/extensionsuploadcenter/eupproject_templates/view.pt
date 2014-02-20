@@ -57,7 +57,7 @@
 </td>
                 <td><span tal:condition="item/file">
                     <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
-                        <img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a>
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
                     </span>
 </td>
                 <td tal:content="item/Description">Description</td>
@@ -86,7 +86,7 @@
                 </td>
                 <td><span tal:condition="item/file">
                     <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
-                        <img src="++resource++tdf.templateuploadcenter/download_icon4.gif" /></a>
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
                     </span>
 </td>
                 <td tal:content="item/Description">Description</td>

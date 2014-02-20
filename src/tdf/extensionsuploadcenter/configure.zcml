@@ -22,4 +22,11 @@
       />
   <!-- -*- extra stuff goes here -*- -->
 
+
+
+  <browser:resourceDirectory
+      name="tdf.extensionsuploadcenter"
+      directory="static" />
+
+
 </configure>
