@@ -26,6 +26,7 @@
                         SearchableText request/SearchableText | string:;
                         sort_on   request/sort_on | string:positive_ratings;
                         cropText nocall:context/@@plone/cropText;
+                        catalog nocall:context/portal_catalog;
                         toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
         <div class="grid-row">
@@ -79,7 +80,7 @@
                                         <option value="created" tal:attributes="selected    python:sort_on == 'created' and 'selected' or ''" i18n:translate="">Newest</option>
                                     </select>
                                     <input type="hidden" name="path" tal:attributes="value python:'/'.join(context.getPhysicalPath())" /> &nbsp;
-                                    <input type="hidden" name="portal_type" value="TUCProject" />
+                                    <input type="hidden" name="portal_type" value="EUpProject" />
                                     <input type="search" name="SearchableText" tal:attributes="value SearchableText" value="" class="inputLabel" size="20"                                              />
                                     <input type="submit" value="Search" i18n:attributes="value" />
                             	</form>
@@ -96,7 +97,7 @@
                             <strong i18n:translate="description_no_results_found">No results were found.</strong>
                         </p>
                         <p id="numreleases" i18n:translate="">
-                            <span tal:replace="python:len(results)" i18n:name="results_tuprojects">234</span> projects matching your criteria.
+                            <span tal:replace="python:len(results)" i18n:name="results_eupprojects">234</span> projects matching your criteria.
                         </p>
                         <tal:results condition="results"
                                      define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
@@ -132,7 +133,7 @@
 <div class="project-compatibilities"
 							     tal:define="compatibilities python:result.compatibility_choice;"
 							     tal:condition="compatibilities">
-							     Latest template file compatible with:
+							     Latest extension file compatible with:
 
 							     <tal:loop   repeat="compatibility compatibilities">
 							         <span class="project-compatibility">
