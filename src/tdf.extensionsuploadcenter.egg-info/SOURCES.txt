@@ -14,11 +14,6 @@ src/tdf/extensionsuploadcenter/__init__.py
 src/tdf/extensionsuploadcenter/eupcenter.py
 src/tdf/extensionsuploadcenter/eupproject.py
 src/tdf/extensionsuploadcenter/euprelease.py
-src/tdf/extensionsuploadcenter/extdownloadablefile.py
-src/tdf/extensionsuploadcenter/extproject.py
-src/tdf/extensionsuploadcenter/extrelease.py
-src/tdf/extensionsuploadcenter/extreleases.py
-src/tdf/extensionsuploadcenter/extuploadcenter.py
 src/tdf/extensionsuploadcenter/testing.py
 src/tdf/extensionsuploadcenter/tests/__init__.py
 src/tdf/extensionsuploadcenter/tests/test_example.py

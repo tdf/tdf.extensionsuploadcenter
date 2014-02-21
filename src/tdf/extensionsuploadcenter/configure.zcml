@@ -12,6 +12,7 @@
     <includeDependencies package="." />
     <grok:grok package="." />
     <include file="permissions.zcml" />
+    <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
       name="default"
