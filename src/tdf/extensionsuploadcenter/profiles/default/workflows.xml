@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+    <object name="tdf_extensionsuploadcenter_projects_workflow" meta_type="Workflow"/>
+    <bindings>
+        <default>
+            <bound-workflow workflow_id="tdf_extensionsuploadcenter_projects_workflow"/>
+        </default>
+        <type type_id="tdf.extensionsuploadcenter.project" />
+     </bindings>
+</object>

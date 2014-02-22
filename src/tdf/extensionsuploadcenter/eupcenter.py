@@ -225,7 +225,21 @@ class View(dexterity.DisplayForm):
         sort_on = 'positive_ratings'
         contentFilter = {
                          'sort_order': 'reverse',
+                         'review_state': 'published',
                          'portal_type' : 'tdf.extensionsuploadcenter.eupproject'}
+        results = self.catalog(**contentFilter)
+
+        return results[:5]
+
+
+    def get_newest_products(self):
+        self.catalog = getToolByName(self.context, 'portal_catalog')
+        sort_on = 'created'
+        contentFilter = {
+                          'sort_order' : 'reverse',
+                          'review_state': 'published',
+                          'portal_type':'tdf.extensionsuploadcenter.eupproject'}
+
         results = self.catalog(**contentFilter)
 
         return results[:5]
