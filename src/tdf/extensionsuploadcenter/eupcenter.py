@@ -219,3 +219,14 @@ class View(dexterity.DisplayForm):
 
         return self.catalog(**contentFilter)
 
+
+    def get_most_popular_products(self):
+        self.catalog = getToolByName(self.context, 'portal_catalog')
+        sort_on = 'positive_ratings'
+        contentFilter = {
+                         'sort_order': 'reverse',
+                         'portal_type' : 'tdf.extensionsuploadcenter.eupproject'}
+        results = self.catalog(**contentFilter)
+
+        return results[:5]
+

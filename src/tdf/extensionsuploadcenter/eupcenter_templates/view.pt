@@ -163,6 +163,71 @@
             </div>
 
 
+	<div class="grid-cell position-two-thirds width-third">
+		<div class="sidebar">
+            <h2 i18n:translate="">Most recent <span tal:content="context/product_title" i18n:name="product_title" /></h2>
+
+            <h2 i18n:translate="">Most popular <span tal:content="context/product_title" i18n:name="product_title" /></h2>
+
+            <div class="" id="categories"
+                            tal:define="results python:view.get_most_popular_products();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:10;b_start python:0;b_start request/b_start | b_start;
+				                        desc_length site_properties/search_results_description_length;
+				                        desc_ellipsis site_properties/ellipsis;">
+                <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+                    <ul class="downloads">
+                        <li tal:repeat="result batch">
+                          <tal:entry
+						                define="project result/getObject;
+
+						                url result/getURL;
+							            projectURL project/absolute_url;
+							            result_type result/portal_type;
+							            zoomid   python:project.id.replace('.', '_');
+							            screenshot   project/getScreenshot | nothing">
+
+                              <h3 style="border-top: none">
+                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+								           <tal:comment replace="nothing">Product One</tal:comment></a>
+                                       </h3>
+
+						  </tal:entry>
+
+                        </li>
+
+                    </ul>
+
+
+
+
+
+                </tal:results>
+
+
+
+		    </div>
+
+			<h2 tal:condition="context/product_title" i18n:translate="">
+				Browse <span tal:content="context/product_title" i18n:name="product_title" /> by Category
+			</h2>
+			<h2 tal:condition="not:context/product_title" i18n:translate="">Browse Extensions by Category</h2>
+
+			<ol id="add-on-categories">
+				<tal:categories repeat="cat context/available_category">
+
+                <li><a href=""
+                tal:define="csplit python:[s.strip() for s in cat.split('|')]; cid python:csplit[0]"
+                tal:attributes="href string:${context/absolute_url}?getCategories=${cid}&getCompatibility=any"
+                tal:content="python:csplit[0]"
+                ><tal:comment replace="nothing">LibreOffice extensions</tal:comment></a></li>
+				</tal:categories>
+			</ol>
+
+		</div>
+    </div>
 
 
 </tal:main-macro>
