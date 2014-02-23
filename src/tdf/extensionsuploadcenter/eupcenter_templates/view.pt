@@ -27,7 +27,8 @@
                         sort_on   request/sort_on | string:positive_ratings;
                         cropText nocall:context/@@plone/cropText;
                         catalog nocall:context/portal_catalog;
-                        toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                        herePath python:'/'.join(context.getPhysicalPath());
+                        getCategoryName nocall:view/category_name;">
 
         <div class="grid-row">
             <div class="grid-cell position-two-thirds width-third">

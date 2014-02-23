@@ -249,3 +249,8 @@ class View(dexterity.DisplayForm):
         results = self.catalog(**contentFilter)
 
         return results[:5]
+
+
+    def category_name(self):
+        category = list(self.context.available_category)
+        return category
