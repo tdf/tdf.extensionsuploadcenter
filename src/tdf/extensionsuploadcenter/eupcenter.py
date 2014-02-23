@@ -112,8 +112,14 @@ class IEUpCenter(form.Schema):
 
     form.primary('install_instructions')
     install_instructions = RichText(
-        title=_(u"Template Installation Instructions"),
+        title=_(u"Extension Installation Instructions"),
         default=_(u"Fill in the install instructions"),
+        required=False
+    )
+
+    form.primary('reporting_bugs')
+    reporting_bugs = RichText(
+        title=_(u"Instruction how to report Bugs"),
         required=False
     )
 
@@ -243,4 +249,3 @@ class View(dexterity.DisplayForm):
         results = self.catalog(**contentFilter)
 
         return results[:5]
-
