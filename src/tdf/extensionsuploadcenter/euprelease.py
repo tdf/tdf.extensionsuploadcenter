@@ -259,3 +259,6 @@ class View(dexterity.DisplayForm):
     grok.context(IEUpRelease)
     grok.require('zope2.View')
 
+    def canPublishContent(self):
+        return checkPermission('cmf.ModifyPortalContent', self.context)
+

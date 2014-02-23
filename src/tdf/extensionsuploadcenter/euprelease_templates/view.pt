@@ -13,6 +13,10 @@
 
          <h1 class="documentFirstHeading"><span tal:content="context/title" /> - <span tal:content="context/releasenumber" /></h1>
 
+        <div class="discreet" tal:condition="view/canPublishContent" i18n:translate="suggest_publish">
+            Please don't forget to publish your release.
+        </div>
+
 
       <p class="documentDescription" tal:content="context/description/title" />
         <h4 class="extcenter" i18n:translate="title_release_details">Release Details</h4>
