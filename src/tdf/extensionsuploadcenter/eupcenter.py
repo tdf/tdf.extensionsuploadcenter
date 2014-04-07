@@ -26,7 +26,7 @@ from Acquisition import aq_inner
 
 class IEUpCenter(form.Schema):
 
-    """ A Extensions Upload Center for LibreOffice extensions.
+    """ An Extensions Upload Center for LibreOffice extensions.
     """
 
 
@@ -193,9 +193,8 @@ class View(dexterity.DisplayForm):
     def get_latest_program_release(self):
         """Get the latest version from the vocabulary. This only
         goes by string sorting so would need to be reworked if the
-        plone versions dramatically changed"""
-        # getAvailableVersions is coming from root.py. ?
-
+        LibreOffice versions dramatically changed"""
+        
         versions = list(self.context.available_versions)
         versions.sort(reverse=True)
         return versions[0]
