@@ -262,3 +262,5 @@ class View(dexterity.DisplayForm):
     def canPublishContent(self):
         return checkPermission('cmf.ModifyPortalContent', self.context)
 
+
+

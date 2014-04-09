@@ -55,19 +55,20 @@
             <tr bgcolor="#EEEEEE" tal:condition="repeat/item/even">
                 <td> <h4><a tal:attributes="href item/getId">
            <span tal:content="item/Title" /> - <span tal:content="item/releasenumber" /></a></h4>
-</td>
+                </td>
                 <td><span tal:condition="item/file">
                     <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
                         <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
                     </span>
-</td>
+                </td>
                 <td tal:content="item/Description">Description</td>
 
                 <td>
-<ul><tal:loop repeat="compatibility_choice item/compatibility_choice">
-    <li><div tal:content="compatibility_choice"/></li>
-    </tal:loop></ul>
-</td>
+                  <ul>
+                      <tal:loop repeat="compatibility_choice item/compatibility_choice">
+                            <li><div tal:content="compatibility_choice"/></li>
+                      </tal:loop></ul>
+                </td>
 <td>
 <ul><tal:loop repeat="platform_choice item/platform_choice">
     <li><div tal:content="platform_choice"/></li>

@@ -9,6 +9,10 @@
 
 <head>
     <metal:block fill-slot="top_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++tdf.extensionsuploadcenter/extuploadcenter.css"
+            />
         <tal:noborder condition="python:not user.has_permission('Modify portal content', context)">
             <tal:noborderset tal:define="dummy python:request.set('disable_border', 1)" />
         </tal:noborder>
@@ -39,9 +43,12 @@
                         	<h1 tal:condition="not:context/product_title" i18n:translate="">Extensions</h1>
                         	<span tal:content="structure context/addon_description | nothing"/>
                         <p class="current-projects" i18n:translate="">Currently there are
-                            <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> projects with
-                            <span tal:content="view/euprelease_count" /> releases available.</p>
-                        <a class="pointer" tal:attributes="href string:${context/absolute_url}/++add++tdf.extensionsuploadcenter.eupproject" i18n:translate="">Submit your <span tal:content="context/product_title | string:extension_project" i18n:name="product_title_eupproject" /></a>
+                            <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> project(s) with
+                            <span tal:content="view/euprelease_count" /> release(s) available.</p>
+                        <a class="pointer" tal:attributes="href string:${context/absolute_url}/++add++tdf.extensionsuploadcenter.eupproject" i18n:translate="">
+                            <img src="++resource++tdf.extensionsuploadcenter/yellowarrow.png" /> Submit your
+                            <span tal:content="context/product_title | string:extension_project" i18n:name="product_title_eupproject" />
+                        </a>
 
 
                 	</div>

@@ -1,0 +1,93 @@
+#content-wrapper {
+    margin: 1em auto 0;
+    width: 910px;
+}
+
+
+#content {
+    clear: both;
+    line-height: 1.5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-row {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.position-two-thirds {
+    margin-left: -33.33%;
+}
+
+.width-third {
+    width: 33.33%;
+}
+
+.grid-cell {
+    float: left;
+    left: 100%;
+    position: relative;
+}
+
+#sidebar-downloads {
+    height: 11em;
+}
+
+div.pullout {
+    background-color: #18A303;
+    margin-left: -1em;
+    padding-left: 2.5em;
+}
+
+div.splash {
+
+    border-radius: 0.5em;
+    color: #FFFFFF;
+    font-family: "Helvetica Neue",Arial,FreeSans,sans-serif;
+    margin-bottom: 1em;
+    padding: 0.5em 1.5em 1em;
+}
+
+#content div.splash h1 {
+    color: #FFFFFF;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+    font-size: 1.75em;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-bottom: 0.5em;
+}
+
+#content div.splash a.pointer {
+    background: no-repeat scroll 0 -115px rgba(0, 0, 0, 0);
+    font-size: 115%;
+    padding-left: 16px;
+}
+
+#content div.splash a {
+    border: medium none;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+.position-leftmost {
+    margin-left: -100%;
+}
+.width-two-thirds {
+    width: 66.67%;
+}
+
+#sort-by {
+    font-size: 0.8em;
+    margin-left: 0.7em;
+}
+
+div.sidebar {
+    margin-left: 1em;
+    padding-top: 0.5em;
+}
