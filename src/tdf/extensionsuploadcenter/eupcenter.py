@@ -210,9 +210,11 @@ class View(dexterity.DisplayForm):
             sort_on = 'positive_ratings'
 
         contentFilter = {
+	                     'sort_on' : sort_on,
 	                     'SearchableText': SearchableText,
 	                     'getCompatibility' : version,
-                         'sort_order': 'reverse'}
+                         'sort_order': 'reverse',
+                         'portal_type' : 'tdf.extensionsuploadcenter.euproject'}
 
 
         if version != 'any':
@@ -229,18 +231,20 @@ class View(dexterity.DisplayForm):
         self.catalog = getToolByName(self.context, 'portal_catalog')
         sort_on = 'positive_ratings'
         contentFilter = {
+                         'sort_on' : sort_on,
                          'sort_order': 'reverse',
                          'review_state': 'published',
                          'portal_type' : 'tdf.extensionsuploadcenter.eupproject'}
         results = self.catalog(**contentFilter)
 
-        return results[:5]
+        return results
 
 
     def get_newest_products(self):
         self.catalog = getToolByName(self.context, 'portal_catalog')
         sort_on = 'created'
         contentFilter = {
+                          'sort_on' : sort_on,
                           'sort_order' : 'reverse',
                           'review_state': 'published',
                           'portal_type':'tdf.extensionsuploadcenter.eupproject'}
