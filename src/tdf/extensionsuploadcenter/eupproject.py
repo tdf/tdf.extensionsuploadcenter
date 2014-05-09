@@ -1,3 +1,5 @@
+from zope.interface import Invalid
+
 from five import grok
 from zope import schema
 from tdf.extensionsuploadcenter import _
@@ -106,10 +108,10 @@ class IEUpProject(form.Schema):
     )
 
 
-
+"""
 class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
-    """Validate site-wide uniquneess of project titles.
-    """
+    ""Validate site-wide uniquneess of project titles.
+
 
     def validate(self, value):
         # Perform the standard validation first
@@ -131,7 +133,7 @@ validator.WidgetValidatorDiscriminators(
 )
 grok.global_adapter(ValidateEUpProjectUniqueness)
 
-
+"""
 
 # View
 
