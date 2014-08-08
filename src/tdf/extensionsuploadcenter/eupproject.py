@@ -13,6 +13,7 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from z3c.form import validator
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
+from Products.validation import V_REQUIRED
 
 
 
@@ -108,9 +109,8 @@ class IEUpProject(form.Schema):
     )
 
 
-"""
 class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
-    ""Validate site-wide uniquneess of project titles.
+    #Validate site-wide uniqueness of project titles.
 
 
     def validate(self, value):
@@ -119,7 +119,7 @@ class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
 
         if value is not None:
             catalog = getToolByName(self.context, 'portal_catalog')
-            results = catalog({'title': value,
+            results = catalog({'Title': value,
                                'object_provides': IEUpProject.__identifier__})
 
             contextUUID = IUUID(self.context, None)
@@ -132,8 +132,6 @@ validator.WidgetValidatorDiscriminators(
     field=IEUpProject['title'],
 )
 grok.global_adapter(ValidateEUpProjectUniqueness)
-
-"""
 
 # View
 
