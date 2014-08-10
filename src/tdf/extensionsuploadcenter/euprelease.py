@@ -147,7 +147,7 @@ class IEUpRelease(form.Schema):
     file = NamedBlobFile(
         title=_(u"The File you want to upload"),
         description=_(u"Please upload your file."),
-        required=False,
+        required=True,
     )
 
 

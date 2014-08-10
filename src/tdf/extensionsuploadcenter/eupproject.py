@@ -55,8 +55,9 @@ class IEUpProject(form.Schema):
 
     title = schema.TextLine(
         title=_(u"Title"),
-        description=_(u"Project Title"),
-        min_length=5
+        description=_(u"Project Title - minimum 5 and maximum 40 characters"),
+        min_length=5,
+        max_length=40
     )
 
     description = schema.Text(
