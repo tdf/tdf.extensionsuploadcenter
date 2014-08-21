@@ -54,6 +54,12 @@ def vocabAvailPlatforms(context):
     return SimpleVocabulary(terms)
 
 
+yesnochoice = SimpleVocabulary(
+    [SimpleTerm(value=0, title=_(u'No')),
+     SimpleTerm(value=1, title=_(u'Yes')),]
+    )
+
+
 
 class AcceptLegalDeclaration(Invalid):
     __doc__ = _(u"It is necessary that you accept the Legal Declaration")
@@ -140,6 +146,17 @@ class IEUpRelease(form.Schema):
     contact_address2 = schema.ASCIILine(
         title=_(u"Contact email-address"),
         description=_(u"Contact email-address for the project."),
+        required=False
+    )
+
+    source_code_inside = schema.Choice(
+        title=_(u"Is the source code inside the extension?"),
+        vocabulary=yesnochoice,
+        required=True
+    )
+
+    link_to_source = schema.URI(
+        title=_(u"Please fill in the Link (URL) to the Source Code"),
         required=False
     )
 
@@ -236,6 +253,12 @@ class IEUpRelease(form.Schema):
     def legaldeclarationaccepted(data):
         if data.accept_legal_declaration is not True:
            raise AcceptLegalDeclaration(_(u"Please accept the Legal Declaration about your Release and your Uploaded File"))
+
+    @invariant
+    def testingvalue(data):
+        if data.source_code_inside is not 1 and data.link_to_source is None:
+            raise Invalid(_(u"Please fill in the Link (URL) to the Source Code."))
+
 
 
 @form.default_value(field=IEUpRelease['declaration_legal'])
