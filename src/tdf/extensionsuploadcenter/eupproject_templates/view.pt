@@ -23,13 +23,14 @@
 
 <h4>Logo</h4>
 
-      <div class="eupcenterprojectlogo" width="70px" tal:define="projectlogo nocall:context/project_logo"
-                   tal:condition="nocall:projectlogo"
-                   class="tdfeupcenter-projectlogo">
-                   <img tal:define="scale context/@@images"
-                        tal:replace="structure python: scale.scale('project_logo',
-                        width=90, direction='down').tag()" />
-      </div>
+        <div class="eupcenterprojectlogo" tal:define="project_logo nocall:context/project_logo"
+             tal:condition="nocall:project_logo">
+            <img tal:attributes="src string:${context/absolute_url}/@@download/project_logo/${project_logo/filename};
+                         height picture/_height | nothing;
+                         width picture/_width | nothing;"
+            />
+        </div>
+
         <h4>Screenshot</h4>
 
               <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
