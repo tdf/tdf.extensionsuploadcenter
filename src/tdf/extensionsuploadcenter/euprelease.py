@@ -54,6 +54,8 @@ def vocabAvailPlatforms(context):
     return SimpleVocabulary(terms)
 
 
+
+
 yesnochoice = SimpleVocabulary(
     [SimpleTerm(value=0, title=_(u'No')),
      SimpleTerm(value=1, title=_(u'Yes')),]
@@ -115,6 +117,7 @@ class IEUpRelease(form.Schema):
         value_type=schema.Choice(source=vocabAvailLicenses),
         required=True,
     )
+
 
     compatibility_choice= schema.List(
         title=_(u"Compatible with versions of LibreOffice"),
