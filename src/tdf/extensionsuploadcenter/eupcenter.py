@@ -61,8 +61,7 @@ class IEUpCenter(form.Schema):
     )
 
     available_category = schema.List(title=_(u"Available Categories"),
-        default=['All modules',
-                 'Gallery Contents',
+        default=['Gallery Contents',
                  'Language Tools',
                  'Dictionary',
                  'Writer_Extension',
@@ -72,9 +71,9 @@ class IEUpCenter(form.Schema):
                  'Base_Extension',
                  'Math_Extension',
                  'Extension_Building',
-                 ],
-        value_type=schema.TextLine())
+                 'All modules'],
 
+        value_type=schema.TextLine())
 
 
     available_licenses =schema.List(title=_(u"Available Licenses"),
@@ -90,14 +89,16 @@ class IEUpCenter(form.Schema):
         value_type=schema.TextLine())
 
     available_versions = schema.List(title=_(u"Available Versions"),
-        default=['All Versions',
-                 'LibreOffice 4.2',
-                 'LibreOffice 4.1',
-                 'LibreOffice 4.0',
-                 'LibreOffice 3.6',
-                 'LibreOffice 3.5',
+        default=['LibreOffice 3.3',
                  'LibreOffice 3.4',
-                 'LibreOffice 3.3'],
+                 'LibreOffice 3.5',
+                 'LibreOffice 3.6',
+                 'LibreOffice 4.0',
+                 'LibreOffice 4.1',
+                 'LibreOffice 4.2',
+                 'LibreOffice 4.3',
+                 'LibreOffice 4.4',
+                 'All Versions',],
         value_type=schema.TextLine())
 
     available_platforms = schema.List(title=_(u"Available Platforms"),
@@ -202,29 +203,26 @@ class View(dexterity.DisplayForm):
 
     def get_products(self, category, version, sort_on, SearchableText=None):
         self.catalog = getToolByName(self.context, 'portal_catalog')
-        featured = False
-        # featured content should be filtered by state and then
-        # sorted by average rating
-        if sort_on == 'featured':
-            featured = True
-            sort_on = 'positive_ratings'
+
+        sort_on = 'positive_ratings'
 
         contentFilter = {
 	                     'sort_on' : sort_on,
-	                     'SearchableText': SearchableText,
-	                     'getCompatibility' : version,
-                         'sort_order': 'reverse',
-                         'portal_type' : 'tdf.extensionsuploadcenter.euproject'}
-
+                         
+                         'SearchableText': SearchableText,
+	                     'sort_order': 'reverse',
+                         'portal_type': 'tdf.extensionsuploadcenter.eupproject'}
 
         if version != 'any':
             contentFilter['getCompatibility'] = version
-        if featured:
-            contentFilter['review_state'] = 'featured'
+
         if category:
             contentFilter['getCategories'] = category
 
+
         return self.catalog(**contentFilter)
+
+
 
 
     def get_most_popular_products(self):
@@ -235,10 +233,9 @@ class View(dexterity.DisplayForm):
                          'sort_order': 'reverse',
                          'review_state': 'published',
                          'portal_type' : 'tdf.extensionsuploadcenter.eupproject'}
-        results = self.catalog(**contentFilter)
+        return self.catalog(**contentFilter)
 
-        return results
-
+      #  return results
 
     def get_newest_products(self):
         self.catalog = getToolByName(self.context, 'portal_catalog')
@@ -251,7 +248,7 @@ class View(dexterity.DisplayForm):
 
         results = self.catalog(**contentFilter)
 
-        return results[:5]
+        return results
 
 
     def category_name(self):
