@@ -58,7 +58,7 @@
         <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
                 <div class="paneeuc">
-                    <h2 tal:condition="context/product_title" i18n:translate="">
+                      <h2 tal:condition="context/product_title" i18n:translate="">
                         <span tal:content="context/product_title" i18n:name="product_title" /> Releases
                     </h2>
                     <h2 tal:condition="not:context/product_title" i18n:translate="">Extensions</h2>
@@ -121,7 +121,7 @@
 							<a href=""
 								tal:attributes="href projectURL;"
 								tal:content="result/pretty_title_or_id">
-								<tal:comment replace="nothing">Product One</tal:comment>
+								<tal:comment replace="nothing">Extension One</tal:comment>
 							</a>
 						</h3>
                                         <div tal:content="structure project/@@rate-if-you-dare"/>
@@ -136,8 +136,15 @@
 
 						<span class="project-thumb"
 						      tal:condition="not:screenshot">
-							<img tal:condition="project/logo|nothing"
-								tal:replace="structure project/logo" />
+
+							<img tal:condition="project/project_logo|nothing"
+								tal:replace="structure project/project_logo" />
+
+                            <img tal:condition="project/project_logo|nothing" tal:attributes="src string:${project/absolute_url}/@@download/project/project_logo/${project/project_logo/filename};
+                         height picture/_height | nothing;
+                         width picture/_width | nothing;"
+            />
+
 						</span>
 
 
@@ -149,6 +156,8 @@
 								<span i18n:translate="">in</span>
 								<span tal:replace="python:', '.join([getCategoryName(id) for id in result.getCategories])" tal:on-error="string:"></span>
 							</span>
+                            <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+
 							<p class="product-description"
 								tal:content="python:cropText(project.Description(), desc_length, desc_ellipsis)">
 								<tal:comment replace="nothing">Project Description.</tal:comment>
