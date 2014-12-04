@@ -154,10 +154,7 @@
 									Sept. 3, 2008
 								</span>
 								<span i18n:translate="">in</span>
-								<span tal:replace="python:', '.join([getCategoryName(id) for id in result.getCategories])" tal:on-error="string:"></span>
-							</span>
                             <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
-
 							<p class="product-description"
 								tal:content="python:cropText(project.Description(), desc_length, desc_ellipsis)">
 								<tal:comment replace="nothing">Project Description.</tal:comment>
