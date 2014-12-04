@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-    <index name="getCompatibility" meta_type="KeyWordIndex">
+    <index name="getCompatibility" meta_type="KeywordIndex">
         <indexed_attr value="compatibility_choice"/>
     </index>
     <column value="getCompatibility"/>
-    <index name="getCategories" meta_type="KeyWordIndex">
+    <index name="getCategories" meta_type="KeywordIndex">
         <indexed_attr value="category_choice" />
     </index>
     <column value="getCategories" />
