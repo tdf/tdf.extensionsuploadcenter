@@ -14,6 +14,7 @@ from z3c.form import validator
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from Products.validation import V_REQUIRED
+from Products.CMFCore.interfaces import IActionSucceededEvent
 
 
 
@@ -108,6 +109,20 @@ class IEUpProject(form.Schema):
         description=_(u"Add a screenshot by clicking the 'Browse' button."),
         required=False,
     )
+
+
+@grok.subscribe(IEUpProject, IActionSucceededEvent)
+def notifyProjectManager (eupproject, event):
+
+    mailhost = getToolByName(eupproject, 'MailHost')
+
+    toAddress = "%s" % (eupproject.contactAddress)
+    message= "The status of your LibreOffice extension project changed"
+    subject = "Your Project %s" % (eupproject.title)
+    source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
+
+
+    return mailhost.secureSend(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 
 class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
