@@ -15,7 +15,8 @@ from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from Products.validation import V_REQUIRED
 from Products.CMFCore.interfaces import IActionSucceededEvent
-
+from zope.lifecycleevent.interfaces import IObjectAddedEvent
+from tdf.extensionsuploadcenter.euprelease import IEUpRelease
 
 
 
@@ -105,7 +106,7 @@ class IEUpProject(form.Schema):
     )
 
     screenshot = NamedBlobImage(
-        title=_(u"Screemshot of the Template"),
+        title=_(u"Screemshot of the Extension"),
         description=_(u"Add a screenshot by clicking the 'Browse' button."),
         required=False,
     )
@@ -113,15 +114,20 @@ class IEUpProject(form.Schema):
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
 def notifyProjectManager (eupproject, event):
-
     mailhost = getToolByName(eupproject, 'MailHost')
-
     toAddress = "%s" % (eupproject.contactAddress)
     message= "The status of your LibreOffice extension project changed"
     subject = "Your Project %s" % (eupproject.title)
     source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
+    return mailhost.secureSend(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
-
+@grok.subscribe(IEUpRelease,IObjectAddedEvent)
+def notifyProjectManagerReleaseAdd (eupproject, event):
+    mailhost = getToolByName(eupproject, 'MailHost')
+    toAddress = "%s" % (eupproject.contactAddress)
+    message = "The new release %s was added to your LibreOffice extension project" % (eupproject.title)
+    subject = "A new release was added to your LibreOffice extension project"
+    source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
     return mailhost.secureSend(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 
