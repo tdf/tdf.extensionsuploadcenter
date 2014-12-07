@@ -137,17 +137,9 @@
 						<span class="project-thumb"
 						      tal:condition="not:screenshot">
 
-							<img tal:condition="project/project_logo|nothing"
-								tal:replace="structure project/project_logo" />
 
-                            <img tal:condition="project/project_logo|nothing" tal:attributes="src string:${project/absolute_url}/@@download/project/project_logo/${project/project_logo/filename};
-                         height picture/_height | nothing;
-                         width picture/_width | nothing;"
-            />
-
-						</span>
-
-
+            <img tal:condition="project/project_logo|nothing" tal:replace="structure project/@@images/project_logo" />
+            </span>
 						<div class="product-details">
 							<span class="product-leadin">
 								<span tal:replace="python:toLocalizedTime(result.getLatestReleaseDate or result.modified, long_format=0)">
@@ -286,7 +278,6 @@
 				</tal:categories>
 			</ol>
 
-		</div>
              <div tal:condition="context/install_instructions">
             <h3>Install Instructions</h3>
             <span tal:content="structure context/install_instructions/output" />
