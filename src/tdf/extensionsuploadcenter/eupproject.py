@@ -119,7 +119,7 @@ def notifyProjectManager (eupproject, event):
     message= "The status of your LibreOffice extension project changed"
     subject = "Your Project %s" % (eupproject.title)
     source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
-    return mailhost.secureSend(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
+    return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 @grok.subscribe(IEUpRelease,IObjectAddedEvent)
 def notifyProjectManagerReleaseAdd (eupproject, event):
@@ -128,7 +128,7 @@ def notifyProjectManagerReleaseAdd (eupproject, event):
     message = "The new release %s was added to your LibreOffice extension project" % (eupproject.title)
     subject = "A new release was added to your LibreOffice extension project"
     source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
-    return mailhost.secureSend(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
+    return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 
 class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
