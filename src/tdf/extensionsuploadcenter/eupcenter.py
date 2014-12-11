@@ -20,6 +20,8 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 from Acquisition import aq_inner
+from zope.lifecycleevent.interfaces import IObjectAddedEvent
+from tdf.extensionsuploadcenter.eupproject import IEUpProject
 
 
 
@@ -152,6 +154,18 @@ class IEUpCenter(form.Schema):
         default=_(u"Fill in the text for the legal download disclaimer"),
         required=False
     )
+
+@grok.subscribe(IEUpProject,IObjectAddedEvent)
+def notifyAboutNewProject(eupproject, event):
+    mailhost = getToolByName(eupproject, 'MailHost')
+    urltool = getToolByName(eupproject, 'portal_url')
+    portal = urltool.getPortalObject()
+    toAddress = portal.getProperty('email_from_address')
+    message = "A member added a new project"
+    subject = "A Project with the title %s was added" % (eupproject.title)
+    source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
+    return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
+
 
 
 
