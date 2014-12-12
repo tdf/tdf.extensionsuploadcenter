@@ -163,9 +163,13 @@ class IEUpRelease(form.Schema):
         required=False
     )
 
+    form.fieldset('fileset1',
+        label=u"File Upload 1",
+        fields=['file', 'platform_choice', 'file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
+    )
 
     file = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The first file you want to upload"),
         description=_(u"Please upload your file."),
         required=True,
     )
@@ -173,14 +177,13 @@ class IEUpRelease(form.Schema):
 
 
     platform_choice= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u" First uploaded file is compatible with the Platform(s)"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
 
-
     file1 = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The second file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
@@ -188,14 +191,14 @@ class IEUpRelease(form.Schema):
 
 
     platform_choice1= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u"Second uploaded file is compatible with the Platform(s)"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
 
 
     file2 = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The third file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
@@ -203,49 +206,50 @@ class IEUpRelease(form.Schema):
 
 
     platform_choice2= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u"Third uploaded file is compatible with the Platform(s))"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
 
     file3 = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The fourth file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
 
-
-
     platform_choice3= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u"Fourth uploaded file is compatible with the Platform(s)"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
 
+
+    form.fieldset('fileset2',
+        label=u"File Upload 2",
+        fields=['file4', 'platform_choice4', 'file5', 'platform_choice5']
+    )
+
     file4 = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The fifth file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
 
 
-
     platform_choice4= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u"Fifth uploaded file is compatible with the Platform(s)"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
 
     file5 = NamedBlobFile(
-        title=_(u"The File you want to upload"),
+        title=_(u"The sixth file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
 
-
-
     platform_choice5= schema.List(
-        title=_(u"Compatible with Platform(s)"),
+        title=_(u"Sixth uploaded file is compatible with the Platform(s)"),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
