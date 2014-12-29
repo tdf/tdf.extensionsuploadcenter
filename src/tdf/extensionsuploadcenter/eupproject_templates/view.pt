@@ -5,10 +5,31 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="tdf.extensionsuploadcenter">
+
+
+<head>
+    <metal:block fill-slot="top_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++tdf.extensionsuploadcenter/extuploadcenter.css"
+            />
+        <tal:noborder condition="python:not user.has_permission('Modify portal content', context)">
+            <tal:noborderset tal:define="dummy python:request.set('disable_border', 1)" />
+        </tal:noborder>
+    </metal:block>
+</head>
+
 <body>
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+
+<div class="grid-row">
+    <div class="grid-cell position-leftmost width-two-thirds">
+         <div class="paneeuc">
+
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
          <h1 class="documentFirstHeading"><span tal:content="context/title" /></h1>
@@ -31,14 +52,9 @@
            tal:replace="structure python:scale and scale.tag(css_class='eupcenterprojectlogo') or None" />
 
 
-        <h4>Screenshot</h4>
-
-              <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
-                   tal:condition="nocall:screenshot">
-              <img tal:define="scales context/@@images"
-                   tal:replace="structure python: scales.tag('screenshot',
-                        width=250, height=200, direction='down')" />
-
+        <div class="eupcenterprojectinstallinstructions" tal:condition="context/install_instructions">
+            <h4>Install Instructions</h4>
+            <span tal:content="structure context/install_instructions/output" />
         </div>
 
         <table class="eupcenterprojecttable" border="1" width="100%">
@@ -123,6 +139,29 @@
       <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
       <div class="eupcenterlegaldownload" tal:content="structure context/legal_downloaddisclaimer/output" />
 
+          </div>
+      </div>
+
+	<div class="grid-cell position-two-thirds width-third">
+		<div class="sidebar">
+            <h2 i18n:translate="title_project_resources">Project Resources</h2>
+
+
+        <div tal:condition="context/screenshot">
+            <h4 i18n:translate="title_screenshot">Screenshot</h4>
+              <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
+                   tal:condition="nocall:screenshot">
+              <img tal:define="scales context/@@images"
+                   tal:replace="structure python: scales.tag('screenshot',
+                        width=250, height=200, direction='down')" />
+
+        </div>
+            </div>
+
+            </div>
+        </div>
+
+</div>
 
 </tal:main-macro>
 </metal:main>
