@@ -5,18 +5,35 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="tdf.extensionsuploadcenter">
+
+
+<head>
+    <metal:block fill-slot="top_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++tdf.extensionsuploadcenter/extuploadcenter.css"
+            />
+        <tal:noborder condition="python:not user.has_permission('Modify portal content', context)">
+            <tal:noborderset tal:define="dummy python:request.set('disable_border', 1)" />
+        </tal:noborder>
+    </metal:block>
+</head>
+
 <body>
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
+       <div class="grid-row">
+            <div class="grid-cell position-leftmost width-two-thirds">
+                <div class="paneeuc">
 
          <h1 class="documentFirstHeading"><span tal:content="context/title" /> - <span tal:content="context/releasenumber" /></h1>
 
         <div class="discreet" tal:condition="view/canPublishContent" i18n:translate="suggest_publish">
             Please don't forget to publish your release.
         </div>
-
 
       <p class="documentDescription" tal:content="context/description/title" />
         <h4 class="extcenter" i18n:translate="title_release_details">Release Details</h4>
@@ -34,6 +51,10 @@
         <div tal:condition="context/link_to_source">
             <h2 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h2>
             <p tal:content="context/link_to_source">The Link to the Source Code</p>
+        </div>
+        <div class="eupcenterreleaseinstallinstructions" tal:condition="context/install_instructions">
+            <h2>Install Instructions</h2>
+            <span tal:content="structure context/install_instructions/output" />
         </div>
 
         <h2 class="eupcenter" i18n:translate="title_available_downloads">Available Downloads</h2>
@@ -64,6 +85,32 @@
       <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
       <div class="eupcenterlegaldownload" tal:content="structure context/legal_downloaddisclaimer/output" />
 
+</div>
+</div>
+
+	<div class="grid-cell position-two-thirds width-third">
+		<div class="sidebar">
+            <h2 i18n:translate="title_project_resources">Project Resources</h2>
+
+
+        <div tal:condition="context/screenshot">
+            <h4 i18n:translate="title_screenshot">Screenshot</h4>
+              <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
+                   tal:condition="nocall:screenshot">
+              <img tal:define="scales context/@@images"
+                   tal:replace="structure python: scales.tag('screenshot',
+                        width=250, height=200, direction='down')" />
+
+        </div>
+            </div>
+
+        <div tal:condition="context/link_to_source">
+            <h4 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h4>
+            <p tal:content="context/link_to_source">The Link to the Source Code</p>
+        </div>
+            </div>
+        </div>
+           </div>
 </tal:main-macro>
 </metal:main>
 
