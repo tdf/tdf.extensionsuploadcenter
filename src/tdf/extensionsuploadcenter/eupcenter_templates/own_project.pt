@@ -1,0 +1,59 @@
+<div>
+<h1>Your Own Projects</h1>
+        <p>This are your projects on this site:</p>
+
+<div class="" id="ownprojects"
+        tal:define="mt context/portal_membership;
+                    user python:mt.getAuthenticatedMember();
+                    current_user python:user.getUserName();
+                    results python:container.portal_catalog(
+                                               portal_type='tdf.extensionsuploadcenter.eupproject',
+                                               sort_on='Date',
+                                               sort_order='reverse',
+                                               Creator = current_user
+                                               );
+                    Batch python:modules['Products.CMFPlone'].Batch;
+                    b_size python:10;b_start python:0;b_start request/b_start | b_start;">
+
+    <tal:results condition="results" define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+
+                    <ul class="downloads">
+                        <li tal:repeat="result batch">
+                          <tal:entry
+						                define="project result/getObject;
+
+						                url result/getURL;
+							            projectURL project/absolute_url;
+							            result_type result/portal_type;
+							            zoomid   python:project.id.replace('.', '_');
+							            screenshot   project/getScreenshot | nothing">
+
+                              <h3 style="border-top: none">
+                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+								           <tal:comment replace="nothing">Extension One</tal:comment></a>
+                                       </h3>
+
+						  </tal:entry>
+
+                        </li>
+
+                    </ul>
+
+
+    </tal:results>
+
+
+</div>
+
+
+<h2>Submit new <span tal:replace="context/product_title">Extensions</span></h2>
+        <p>If you already created new <span tal:replace="context/product_title">Extensions</span>, please submit your new<br />
+    <a class="pointer"  tal:attributes="href string:${context/absolute_url}/++add++tdf.extensionsuploadcenter.eupproject" i18n:translate="">
+                            <img src="++resource++tdf.extensionsuploadcenter/yellowarrow.png" />
+                            <span tal:content="context/product_title | string:extension_project" i18n:name="product_title_eupproject" />
+    </a>
+</p>
+
+
+</div>

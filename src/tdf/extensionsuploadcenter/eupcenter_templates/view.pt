@@ -31,7 +31,7 @@
                         SearchableText request/SearchableText | string:;
                         sort_on   request/sort_on | string:positive_ratings;
                         cropText nocall:context/@@plone/cropText;
-
+                        isAnon context/@@plone_portal_state/anonymous;
                         herePath python:'/'.join(context.getPhysicalPath());
                         getCategoryName nocall:view/category_name;">
 
@@ -58,6 +58,7 @@
         <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
                 <div class="paneeuc">
+                    <div tal:condition="not: isAnon" tal:replace="structure provider:plone.abovecontenttitle" />
                       <h2 tal:condition="context/product_title" i18n:translate="">
                         <span tal:content="context/product_title" i18n:name="product_title" /> Releases
                     </h2>

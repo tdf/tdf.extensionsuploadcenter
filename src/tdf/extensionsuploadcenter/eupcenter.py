@@ -23,6 +23,10 @@ from Acquisition import aq_inner
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from tdf.extensionsuploadcenter.eupproject import IEUpProject
 
+from plone.app.layout.viewlets.interfaces import IAboveContentTitle
+from zope.app.component.hooks import getSite
+
+
 
 
 
@@ -268,3 +272,16 @@ class View(dexterity.DisplayForm):
     def category_name(self):
         category = list(self.context.available_category)
         return category
+
+
+
+
+class eupownprojects(grok.Viewlet):
+    grok.context(IEUpCenter)
+    grok.viewletmanager(IAboveContentTitle)
+    grok.template('own_project')
+    grok.order(1)
+    grok.require('zope2.View')
+
+
+
