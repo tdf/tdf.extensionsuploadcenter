@@ -143,9 +143,11 @@
             </span>
 						<div class="product-details">
 							<span class="product-leadin">
+                                <!---
 								<span tal:replace="python:toLocalizedTime(result.getLatestReleaseDate or result.modified, long_format=0)">
 									Sept. 3, 2008
 								</span>
+								-->
 								<span i18n:translate="">in</span>
                             <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
 							<p class="product-description"
