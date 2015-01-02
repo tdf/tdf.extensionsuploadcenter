@@ -24,7 +24,6 @@ from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from tdf.extensionsuploadcenter.eupproject import IEUpProject
 
 from plone.app.layout.viewlets.interfaces import IAboveContentTitle
-from zope.app.component.hooks import getSite
 
 
 
