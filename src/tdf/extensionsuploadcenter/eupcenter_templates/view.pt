@@ -47,7 +47,7 @@
                             <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> project(s) with
                             <span tal:content="view/euprelease_count" /> release(s) available.</p>
                         <a class="pointer" tal:attributes="href string:${context/absolute_url}/++add++tdf.extensionsuploadcenter.eupproject" i18n:translate="">
-                            <img src="++resource++tdf.extensionsuploadcenter/yellowarrow.png" /> Submit your
+                            <img src="++resource++tdf.extensionsuploadcenter/yellowarrow.png"  alt=""/> Submit your
                             <span tal:content="context/product_title | string:extension_project" i18n:name="product_title_eupproject" />
                         </a>
 
@@ -63,7 +63,7 @@
                         <span tal:content="context/product_title" i18n:name="product_title" /> Releases
                     </h2>
                     <h2 tal:condition="not:context/product_title" i18n:translate="">Extensions</h2>
-                    <div id=""sort-by">
+                    <div id="sort-by">
                         <form id="product_select" style="margin-bottom: 1em" tal:attributes="action string:${context/absolute_url}">
                             <label class="hiddenStructure" i18n:translate="">Show</label>
                             <select name="getCategories" onchange="this.form.submit()">
@@ -281,16 +281,16 @@
 				</tal:categories>
 			</ol>
 
-             <div tal:condition="context/install_instructions">
+             <div class="installinstructions" tal:condition="context/install_instructions">
             <h3>Install Instructions</h3>
             <span tal:content="structure context/install_instructions/output" />
 
         </div>
-        <div tal:condition="context/reporting_bugs">
+        <div class="bugreporting" tal:condition="context/reporting_bugs">
             <h3>Reporting Extension-Bugs</h3>
             <span tal:content="structure context/reporting_bugs/output" />
         </div>
-        <div tal:condition="context/product_description">
+        <div class="aboutproduct" tal:condition="context/product_description">
             <h3>About</h3>
             <span tal:content="structure context/product_description" />
         </div>
