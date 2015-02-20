@@ -18,7 +18,7 @@
     <tal:results condition="results" define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
 
-                    <ul class="downloads">
+                    <ul class="userprojects">
                         <li tal:repeat="result batch">
                           <tal:entry
 						                define="project result/getObject;
