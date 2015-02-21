@@ -24,6 +24,15 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
+         <dl class="portalMessage info"
+            tal:define="is_editable context/@@plone_context_state/is_editable;"
+            tal:condition="python: is_editable">
+            <dt i18n:translate="">Info</dt>
+            <dd>
+                <span i18n:translate="help_message_remember_is_editable">Remember to publish your release once all files have been added.</span>
+            </dd>
+        </dl>
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
        <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
