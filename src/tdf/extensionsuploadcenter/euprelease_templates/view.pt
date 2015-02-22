@@ -24,7 +24,7 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
-         <dl class="portalMessage info"
+         <dl class="portalinfomessage"
             tal:define="is_editable context/@@plone_context_state/is_editable;"
             tal:condition="python: is_editable">
             <dt i18n:translate="">Info</dt>

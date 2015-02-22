@@ -22,15 +22,23 @@
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
-
+    <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                                          is_editable context/@@plone_context_state/is_editable;
+                                                          wf_tool here/portal_workflow;
+                                                          review_state python:wf_tool.getInfoFor( here, 'review_state', '');">
 <div class="grid-row">
     <div class="grid-cell position-leftmost width-two-thirds">
+                  <p class="portalinfomessage"
+           tal:condition="python: is_editable and not review_state == 'published' "
+           i18n:domain="plone" i18n:translate="description_cannot_add_before_approved">
+           You can not add releases until the
+           project itself is approved, make sure you submit it for approval when
+           the relevant project information has been entered.
+        </p>
+
+
          <div class="paneeuc">
 
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
 
          <h1 class="documentFirstHeading"><span tal:content="context/title" /></h1>
         <div tal:content="structure context/@@rate-if-you-dare"/>
