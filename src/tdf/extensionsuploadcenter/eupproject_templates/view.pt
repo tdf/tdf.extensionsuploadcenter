@@ -31,10 +31,10 @@
                   <p class="portalinfomessage"
            tal:condition="python: is_editable and not review_state == 'published' "
            i18n:domain="plone" i18n:translate="description_cannot_add_before_approved">
-           You can not add releases until the
-           project itself is approved, make sure you submit it for approval when
-           the relevant project information has been entered.
+           Please make sure the relevant project information has been entered and a release has been added to your project.
+           Once you have finished that you could submit your project for approval (publication).
         </p>
+        <p tal:condition="python: is_editable and len(context.getFolderContents()) is 0">Your next step: add a first release to your project please.</p>
 
 
          <div class="paneeuc">
