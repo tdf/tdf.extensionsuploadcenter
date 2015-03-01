@@ -50,8 +50,6 @@ def vocabCategories(context):
     return SimpleVocabulary(terms)
 
 
-
-
 class IEUpProject(form.Schema):
 
 
@@ -76,6 +74,7 @@ class IEUpProject(form.Schema):
     dexteritytextindexer.searchable('category_choice')
     category_choice = schema.List(
         title=_(u"Choose your categories"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabCategories),
         required=True,
     )
