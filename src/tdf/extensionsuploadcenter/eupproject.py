@@ -89,13 +89,13 @@ class IEUpProject(form.Schema):
 
     homepage=schema.URI(
         title=_(u"Homepage"),
-        description=_(u"If the project has an external home page, enter its URL."),
+        description=_(u"If the project has an external home page, enter its URL (example: 'http://www.mysite.org')."),
         required=False
     )
 
     documentation_link=schema.URI(
         title=_(u"URL of documentation repository "),
-        description=_(u"If the project has externally hosted documentation, enter its URL."),
+        description=_(u"If the project has externally hosted documentation, enter its URL (example: 'http://www.mysite.org')."),
         required=False
     )
 
