@@ -63,8 +63,10 @@ yesnochoice = SimpleVocabulary(
 
 
 
+
 class AcceptLegalDeclaration(Invalid):
     __doc__ = _(u"It is necessary that you accept the Legal Declaration")
+
 
 
 class IEUpRelease(form.Schema):
@@ -255,6 +257,15 @@ class IEUpRelease(form.Schema):
     )
 
 
+    @invariant
+    def licensenotchoosen(value):
+        if value.licenses_choice == []:
+            raise Invalid(_(u"Please choose a license for your release."))
+
+    @invariant
+    def compatibilitynotchoosen(data):
+        if data.compatibility_choice == []:
+            raise Invalid(_(u"Please choose one or more compatible product versions for your release"))
 
     @invariant
     def legaldeclarationaccepted(data):
@@ -265,6 +276,11 @@ class IEUpRelease(form.Schema):
     def testingvalue(data):
         if data.source_code_inside is not 1 and data.link_to_source is None:
             raise Invalid(_(u"Please fill in the Link (URL) to the Source Code."))
+
+    @invariant
+    def noOSChosen(data):
+        if data.file is not None and data.platform_choice ==[]:
+            raise Invalid(_(u"Please choose a compatible platform for the uploaded file."))
 
 
 
