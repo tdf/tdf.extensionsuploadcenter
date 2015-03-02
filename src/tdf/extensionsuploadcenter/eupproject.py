@@ -1,4 +1,4 @@
-from zope.interface import Invalid
+from zope.interface import Invalid, invariant
 
 from five import grok
 from zope import schema
@@ -48,6 +48,11 @@ def vocabCategories(context):
         terms.append(SimpleTerm(value, token=value.encode('unicode_escape'), title=value))
 
     return SimpleVocabulary(terms)
+
+
+
+class MissingCategory(Invalid):
+    __doc__ = _(u"You have not chosen a category for the project")
 
 
 class IEUpProject(form.Schema):
@@ -109,6 +114,12 @@ class IEUpProject(form.Schema):
         description=_(u"Add a screenshot by clicking the 'Browse' button."),
         required=False,
     )
+
+
+    @invariant
+    def noCategoryChoosen(data):
+         if data.category_choice == []:
+              raise MissingCategory(_(u"You had to choose at least one category for your project."))
 
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
