@@ -116,6 +116,7 @@ class IEUpRelease(form.Schema):
 
     licenses_choice= schema.List(
         title=_(u'License of the uploaded file'),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailLicenses),
         required=True,
     )
@@ -123,6 +124,7 @@ class IEUpRelease(form.Schema):
 
     compatibility_choice= schema.List(
         title=_(u"Compatible with versions of LibreOffice"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailVersions),
         required=True,
     )
@@ -180,6 +182,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice= schema.List(
         title=_(u" First uploaded file is compatible with the Platform(s)"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -194,6 +197,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice1= schema.List(
         title=_(u"Second uploaded file is compatible with the Platform(s)"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -209,6 +213,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice2= schema.List(
         title=_(u"Third uploaded file is compatible with the Platform(s))"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -221,6 +226,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice3= schema.List(
         title=_(u"Fourth uploaded file is compatible with the Platform(s)"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -240,6 +246,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice4= schema.List(
         title=_(u"Fifth uploaded file is compatible with the Platform(s)"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -252,6 +259,7 @@ class IEUpRelease(form.Schema):
 
     platform_choice5= schema.List(
         title=_(u"Sixth uploaded file is compatible with the Platform(s)"),
+        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
