@@ -61,7 +61,14 @@ yesnochoice = SimpleVocabulary(
      SimpleTerm(value=1, title=_(u'Yes')),]
     )
 
+def isNotEmptyLicenseChoice(value):
+     if not value:
+         raise Invalid(u"You had to choose at least one license for your release.")
 
+
+def isNotEmptyCompatibilityChoice(value):
+    if not value:
+        raise Invalid(u"You had to choose at least one product version for your release.")
 
 
 class AcceptLegalDeclaration(Invalid):
@@ -118,6 +125,7 @@ class IEUpRelease(form.Schema):
         title=_(u'License of the uploaded file'),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailLicenses),
+        constraint = isNotEmptyLicenseChoice,
         required=True,
     )
 
@@ -126,6 +134,7 @@ class IEUpRelease(form.Schema):
         title=_(u"Compatible with versions of LibreOffice"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailVersions),
+        constraint = isNotEmptyCompatibilityChoice,
         required=True,
     )
 
