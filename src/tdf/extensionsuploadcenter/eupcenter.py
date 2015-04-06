@@ -102,8 +102,7 @@ class IEUpCenter(form.Schema):
                  'LibreOffice 4.1',
                  'LibreOffice 4.2',
                  'LibreOffice 4.3',
-                 'LibreOffice 4.4',
-                 'All Versions',],
+                 'LibreOffice 4.4',],
         value_type=schema.TextLine())
 
     available_platforms = schema.List(title=_(u"Available Platforms"),
