@@ -75,8 +75,10 @@
                             <select name="getCompatibility" onchange="this.form.submit()">
                                    <tal:block tal:repeat="version context/available_versions">
                                       <option tal:content="version"
-                                           tal:attributes="value version; selected python:(currentVersion==version, 'selected', nothing)" />
+                                           tal:attributes="value version; selected python: (currentVersion==version, 'selected', nothing)" />
                                    </tal:block>
+                                      <option value="any" tal:attributes="selected python: (currentVersion in ['', 'any'],'selected',nothing)"
+                                          i18n:translate="label_any_version"> Any version</option>
 
                                </select>
                              <label for="project-sort" i18n:translate="">Sort On</label>
