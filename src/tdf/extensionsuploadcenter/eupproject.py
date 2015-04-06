@@ -17,6 +17,7 @@ from Products.validation import V_REQUIRED
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from tdf.extensionsuploadcenter.euprelease import IEUpRelease
+from plone.indexer import indexer
 
 
 
@@ -56,6 +57,10 @@ def isNotEmptyCategory(value):
 
 
 
+
+class MissingCategory(Invalid):
+    __doc__ = _(u"You have not chosen a category for the project")
+
 class IEUpProject(form.Schema):
 
 
@@ -82,8 +87,8 @@ class IEUpProject(form.Schema):
         title=_(u"Choose your categories"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabCategories),
-        constraint=isNotEmptyCategory,
-        required=True,
+
+        required=True
     )
 
 
@@ -117,7 +122,10 @@ class IEUpProject(form.Schema):
         required=False,
     )
 
-
+    @invariant
+    def noCategoryChoosen(data):
+        if data.category_choice == []:
+            raise MissingCategory(_(u"You had to choose at least one category for your project."))
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
 def notifyProjectManager (eupproject, event):
@@ -136,6 +144,37 @@ def notifyProjectManagerReleaseAdd (eupproject, event):
     subject = "A new release was added to your LibreOffice extension project"
     source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
     return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
+
+
+def getLatestRelease(self):
+
+    res = None
+    catalog = getToolByName(self, 'portal_catalog')
+    res = catalog.searchResults(
+        folderpath = '/'.join(context.getPhysicalPath()),
+        review_state = 'published',
+        sort_on = 'Date',
+        sort_order = 'reverse',
+        portal_type = 'tdf.extensionsuploadcenter.euprelease')
+
+    if not res:
+        return None
+    else:
+        return res[0]
+
+@grok.adapter(IEUpProject, name='getCompatibility')
+@indexer(IEUpProject)
+def getCompatibilityIndexer(obj):
+    """Get the compatibility of the product by getting the compatibilities of the latest published release.
+    This is been used for the index"""
+
+    compatabilities = []
+    release = obj.getLatestRelease()
+    if release:
+        for release_compatability in release.getCompatibility:
+            compatabilities.append(release_compatability)
+    compatabilities.sort(reverse=True)
+    return set(compatabilities)
 
 
 class ValidateEUpProjectUniqueness(validator.SimpleFieldValidator):
