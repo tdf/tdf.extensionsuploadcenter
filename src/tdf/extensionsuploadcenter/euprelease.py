@@ -64,11 +64,13 @@ yesnochoice = SimpleVocabulary(
 def isNotEmptyLicenseChoice(value):
      if not value:
          raise Invalid(u"You had to choose at least one license for your release.")
+     return True
 
 
 def isNotEmptyCompatibilityChoice(value):
     if not value:
         raise Invalid(u"You had to choose at least one product version for your release.")
+    return True
 
 
 class AcceptLegalDeclaration(Invalid):
@@ -176,10 +178,6 @@ class IEUpRelease(form.Schema):
         required=False
     )
 
-    form.fieldset('fileset1',
-        label=u"File Upload 1",
-        fields=['file', 'platform_choice', 'file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
-    )
 
     file = NamedBlobFile(
         title=_(u"The first file you want to upload"),
@@ -194,6 +192,12 @@ class IEUpRelease(form.Schema):
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
+    )
+
+
+    form.fieldset('fileset1',
+        label=u"File Upload 1",
+        fields=['file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
     )
 
     file1 = NamedBlobFile(
