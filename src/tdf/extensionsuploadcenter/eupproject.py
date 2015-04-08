@@ -54,6 +54,7 @@ def vocabCategories(context):
 def isNotEmptyCategory(value):
     if not value:
         raise Invalid(u'You must choose at least one category for your project.')
+    return True
 
 
 
@@ -87,7 +88,7 @@ class IEUpProject(form.Schema):
         title=_(u"Choose your categories"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabCategories),
-
+        constraint = isNotEmptyCategory,
         required=True
     )
 
@@ -122,10 +123,6 @@ class IEUpProject(form.Schema):
         required=False,
     )
 
-    @invariant
-    def noCategoryChoosen(data):
-        if data.category_choice == []:
-            raise MissingCategory(_(u"You had to choose at least one category for your project."))
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
 def notifyProjectManager (eupproject, event):
