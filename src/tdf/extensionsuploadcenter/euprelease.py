@@ -195,6 +195,14 @@ class IEUpRelease(form.Schema):
     )
 
 
+    form.mode(information_further_file_uploads='display')
+    form.primary('information_further_file_uploads')
+    information_further_file_uploads = RichText(
+        title = _(u"Further File Uploads for this Release"),
+        description = _(u"If you want to upload more files for this release, e.g. because there are files for other operating systems, you'll find the upload fields on the register 'File Upload 1' and 'File Upload 2'."),
+        required = False
+     )
+
     form.fieldset('fileset1',
         label=u"File Upload 1",
         fields=['file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
