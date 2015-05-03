@@ -64,19 +64,20 @@ class MissingCategory(Invalid):
 
 class IEUpProject(form.Schema):
 
-
+    dexteritytextindexer.searchable('title')
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Project Title - minimum 5 and maximum 40 characters"),
         min_length=5,
         max_length=40
     )
-
+    
+    dexteritytextindexer.searchable('description')
     description = schema.Text(
         title=_(u"Project Summary"),
     )
 
-
+    dexteritytextindexer.searchable('details')
     form.primary('details')
     details = RichText(
         title=_(u"Full Project Description"),
