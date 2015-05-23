@@ -286,16 +286,16 @@
 
              <div class="installinstructions" tal:condition="context/install_instructions">
             <h3>Install Instructions</h3>
-            <span tal:content="structure context/install_instructions/output" />
+            <p tal:replace="structure context/install_instructions/output" />
 
         </div>
         <div class="bugreporting" tal:condition="context/reporting_bugs">
             <h3>Reporting Extension-Bugs</h3>
-            <span tal:content="structure context/reporting_bugs/output" />
+            <p tal:replace="structure context/reporting_bugs/output" />
         </div>
         <div class="aboutproduct" tal:condition="context/product_description">
             <h3>About</h3>
-            <span tal:content="structure context/product_description" />
+            <p tal:content="structure context/product_description" />
         </div>
 
 
