@@ -152,6 +152,7 @@
 								-->
 								<span i18n:translate="">in</span>
                             <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+                            </span>
 							<p class="product-description"
 								tal:content="python:cropText(project.Description(), desc_length, desc_ellipsis)">
 								<tal:comment replace="nothing">Project Description.</tal:comment>
@@ -179,7 +180,7 @@
 
             </div>
 
- <!--- end of new form including results area --->
+ <!--- end of new form including results area -->
 
 	<div class="grid-cell position-two-thirds width-third">
 		<div class="sidebar">
