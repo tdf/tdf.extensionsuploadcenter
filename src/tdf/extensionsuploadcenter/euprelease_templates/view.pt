@@ -36,7 +36,7 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
        <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
-                <div class="paneeuc">
+                <div class="paneeucrelease">
 
          <h1 class="documentFirstHeading"><span tal:content="context/title" /> - <span tal:content="context/releasenumber" /></h1>
 
