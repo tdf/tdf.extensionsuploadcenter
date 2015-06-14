@@ -67,10 +67,6 @@
            tal:replace="structure python:scale and scale.tag(css_class='eupcenterprojectlogo') or None" />
 
 
-        <div class="eupcenterprojectinstallinstructions" tal:condition="context/install_instructions">
-            <h4>Install Instructions</h4>
-            <span tal:content="structure context/install_instructions/output" />
-        </div>
 
         <table class="eupcenterprojecttable" border="1" width="100%">
             <thead>
@@ -173,6 +169,14 @@
         </div>
             </div>
 
+        <div class="eupcenterprojectinstallinstructions" tal:condition="context/install_instructions">
+            <h3>Install Instructions</h3>
+            <span tal:content="structure context/install_instructions/output" />
+        </div>
+            <div class="eupcenterprojectreportingbugs" tal:condition="context/reporting_bugs">
+                <h3>Reporting Extension-Bugs</h3>
+                <span tal:content="structure context/reporting_bugs" />
+            </div>
             </div>
         </div>
 

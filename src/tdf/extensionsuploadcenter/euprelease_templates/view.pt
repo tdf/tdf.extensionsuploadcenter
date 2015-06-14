@@ -57,14 +57,6 @@
         <h4 class="documentSecondheading">Changelog</h4>
         <div class="eupcenterchangelog" tal:content="structure view/w/changelog/render" />
 
-        <div tal:condition="context/link_to_source">
-            <h2 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h2>
-            <p tal:content="context/link_to_source">The Link to the Source Code</p>
-        </div>
-        <div class="eupcenterreleaseinstallinstructions" tal:condition="context/install_instructions">
-            <h2>Install Instructions</h2>
-            <span tal:content="structure context/install_instructions/output" />
-        </div>
 
         <h2 class="eupcenter" i18n:translate="title_available_downloads">Available Downloads</h2>
 
@@ -117,6 +109,15 @@
             <h4 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h4>
             <p tal:content="context/link_to_source">The Link to the Source Code</p>
         </div>
+            <div class="eupcenterreleaseinstallinstructions" tal:condition="context/install_instructions">
+            <h3>Install Instructions</h3>
+            <span tal:content="structure context/install_instructions/output" />
+        </div>
+            <div class="eupcenterreleasereportingbugs" tal:condition="context/reporting_bugs">
+                <h3>Reporting Extension-Bugs</h3>
+                <span tal:content="structure context/reporting_bugs/output" />
+            </div>
+
             </div>
         </div>
            </div>
