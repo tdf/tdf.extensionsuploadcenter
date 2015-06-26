@@ -56,6 +56,8 @@ def isNotEmptyCategory(value):
         raise Invalid(u'You must choose at least one category for your project.')
     return True
 
+class ProvideScreenshotLogo(Invalid):
+    __doc__ =  _(u"Please add a Screenshot or a Logo to your project")
 
 
 
@@ -123,6 +125,13 @@ class IEUpProject(form.Schema):
         description=_(u"Add a screenshot by clicking the 'Browse' button."),
         required=False,
     )
+
+
+    @invariant
+    def missingScreenshotOrLogo(data):
+        if not data.screenshot and not data.project_logo:
+            raise ProvideScreenshotLogo(_(u'Please add a Screenshot or a Logo to your project page'))
+
 
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
