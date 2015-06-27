@@ -36,6 +36,82 @@
                         getCategoryName nocall:view/category_name;">
 
         <div class="grid-row">
+            <div class="grid-cell position-leftmost width-two-thirds">
+                <div class="" id="mostpopular">
+                <h2 i18n:translate="">Most popular <span tal:content="context/product_title" i18n:name="product_title" /></h2>
+                <div
+                            tal:define="results python:view.get_most_popular_products();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:10;b_start python:0;b_start request/b_start | b_start;
+				                        desc_length site_properties/search_results_description_length;
+				                        desc_ellipsis site_properties/ellipsis;">
+                <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+                    <ul class="popularproducts">
+                        <li tal:repeat="result batch">
+                          <tal:entry
+						                define="project result/getObject;
+
+						                url result/getURL;
+							            projectURL project/absolute_url;
+							            result_type result/portal_type;
+							            zoomid   python:project.id.replace('.', '_');
+							            screenshot   project/getScreenshot | nothing">
+
+                              <div class="project-thumb thumbzoom"
+						      tal:condition="screenshot">
+						   <a tal:attributes="href projectURL">
+							<img
+							    tal:condition="project/screenshot_thumb|nothing"
+								tal:replace="structure project/screenshot_thumb" />
+				           </a>
+						</div>
+                              <span class="project-thumb"
+						      tal:condition="not:screenshot">
+
+
+            <img tal:condition="project/project_logo|nothing" tal:replace="structure project/@@images/project_logo" />
+            </span>
+
+                              <h3 style="border-top: none">
+                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+								           <tal:comment replace="nothing">Extension One</tal:comment></a>
+                                       </h3>
+                              <div tal:content="structure project/@@rate-if-you-dare" />
+
+                       <div class="product-details">
+							<span class="product-leadin">
+                                <!---
+								<span tal:replace="python:toLocalizedTime(result.getLatestReleaseDate or result.modified, long_format=0)">
+									Sept. 3, 2008
+								</span>
+								-->
+								<span i18n:translate="">in</span>
+                            <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+                            </span>
+							<p class="product-description"
+								tal:content="python:cropText(project.Description(), desc_length, desc_ellipsis)">
+								<tal:comment replace="nothing">Project Description.</tal:comment>
+							</p>
+
+
+						</div>
+
+
+
+						  </tal:entry>
+
+                        </li>
+
+                    </ul>
+
+                </tal:results>
+                </div>
+</div>
+
+
+            </div>
             <div class="grid-cell position-two-thirds width-third">
                 	<div class="splash pullout" id="sidebar-downloads">
                         	<h1 tal:condition="context/product_title" i18n:translate="">
@@ -52,15 +128,95 @@
                         </a>
 
                 	</div>
-            </div>
+                 <div tal:condition="not: isAnon" tal:replace="structure provider:plone.abovecontenttitle" />
+                <div id="mostrecent">
+                <h2 i18n:translate="">Most recent <span tal:content="context/product_title" i18n:name="product_title" /></h2>
+                <div class=""
+                            tal:define="results python:view.get_newest_products();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
+				                        desc_length site_properties/search_results_description_length;
+				                        desc_ellipsis site_properties/ellipsis;">
+                <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+                    <ul class="newestproducts">
+                        <li tal:repeat="result batch">
+                          <tal:entry
+						                define="project result/getObject;
+
+						                url result/getURL;
+							            projectURL project/absolute_url;
+							            result_type result/portal_type;
+							            zoomid   python:project.id.replace('.', '_');
+							            screenshot   project/getScreenshot | nothing">
+
+                              <h3 style="border-top: none">
+                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+								           <tal:comment replace="nothing">Extension One</tal:comment></a>
+                                       </h3>
+
+						  </tal:entry>
+
+                        </li>
+
+                    </ul>
+
+
+
+
+
+                </tal:results>
+                    </div>
+                    </div>
+                    <div id="by-category">
+
+			<h2 tal:condition="here/product_title" i18n:translate="">
+				Browse <span tal:content="context/product_title" i18n:name="product_title" /> by Category
+			</h2>
+			<h2 tal:condition="not:context/product_title" i18n:translate="">Browse Extensions by Category</h2>
+
+			<ol id="add-on-categories">
+				<tal:categories repeat="category context/available_category">
+
+				<li><a href=""
+							tal:attributes="href string:${context/absolute_url}?getCategories=${category}&getCompatibility=any"
+							tal:content="category"
+							><tal:comment replace="nothing">Extension releases</tal:comment></a></li>
+				</tal:categories>
+			</ol>
+
+
+
+		    </div>
+             <div class="installinstructions" tal:condition="context/install_instructions">
+            <h3>Install Instructions</h3>
+            <p tal:replace="structure context/install_instructions/output" />
+
         </div>
+        <div class="bugreporting" tal:condition="context/reporting_bugs">
+            <h3>Reporting Extension-Bugs</h3>
+            <p tal:replace="structure context/reporting_bugs/output" />
+        </div>
+        <div class="aboutproduct" tal:condition="context/product_description">
+            <h3>About</h3>
+            <p tal:content="structure context/product_description" />
+        </div>
+
+
+</div>
+
+
+            </div>
+
+
 
         <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
                 <div class="paneeuc">
-                    <div tal:condition="not: isAnon" tal:replace="structure provider:plone.abovecontenttitle" />
-                      <h2 tal:condition="context/product_title" i18n:translate="">
-                        <span tal:content="context/product_title" i18n:name="product_title" /> Releases
+
+                      <h2 tal:condition="context/product_title" i18n:translate="">Search
+                        <span tal:content="context/product_title" i18n:name="product_title" />
                     </h2>
                     <h2 tal:condition="not:context/product_title" i18n:translate="">Extensions</h2>
                     <div id="sort-by">
@@ -185,118 +341,9 @@
 	<div class="grid-cell position-two-thirds width-third">
 		<div class="sidebar">
 
-             <h2 i18n:translate="">Most recent <span tal:content="context/product_title" i18n:name="product_title" /></h2>
-
-            <div class="" id="mostrecent"
-                            tal:define="results python:view.get_newest_products();
-                                        Batch python:modules['Products.CMFPlone'].Batch;
-				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
-				                        desc_length site_properties/search_results_description_length;
-				                        desc_ellipsis site_properties/ellipsis;">
-                <tal:results condition="results"
-                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
-
-                    <ul class="newestproducts">
-                        <li tal:repeat="result batch">
-                          <tal:entry
-						                define="project result/getObject;
-
-						                url result/getURL;
-							            projectURL project/absolute_url;
-							            result_type result/portal_type;
-							            zoomid   python:project.id.replace('.', '_');
-							            screenshot   project/getScreenshot | nothing">
-
-                              <h3 style="border-top: none">
-                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
-								           <tal:comment replace="nothing">Extension One</tal:comment></a>
-                                       </h3>
-
-						  </tal:entry>
-
-                        </li>
-
-                    </ul>
 
 
 
-
-
-                </tal:results>
-
-
-
-		    </div>
-
-            <h2 i18n:translate="">Most popular <span tal:content="context/product_title" i18n:name="product_title" /></h2>
-
-            <div class="" id="mostpopular"
-                            tal:define="results python:view.get_most_popular_products();
-                                        Batch python:modules['Products.CMFPlone'].Batch;
-				                        b_size python:10;b_start python:0;b_start request/b_start | b_start;
-				                        desc_length site_properties/search_results_description_length;
-				                        desc_ellipsis site_properties/ellipsis;">
-                <tal:results condition="results"
-                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
-
-                    <ul class="popularproducts">
-                        <li tal:repeat="result batch">
-                          <tal:entry
-						                define="project result/getObject;
-
-						                url result/getURL;
-							            projectURL project/absolute_url;
-							            result_type result/portal_type;
-							            zoomid   python:project.id.replace('.', '_');
-							            screenshot   project/getScreenshot | nothing">
-
-                              <h3 style="border-top: none">
-                                           <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
-								           <tal:comment replace="nothing">Extension One</tal:comment></a>
-                                       </h3>
-
-						  </tal:entry>
-
-                        </li>
-
-                    </ul>
-
-                </tal:results>
-                </div>
-
-
-
-
-           <div class="" id="bycategory">
-
-			<h2 tal:condition="here/product_title" i18n:translate="">
-				Browse <span tal:content="context/product_title" i18n:name="product_title" /> by Category
-			</h2>
-			<h2 tal:condition="not:context/product_title" i18n:translate="">Browse Extensions by Category</h2>
-
-			<ol id="add-on-categories">
-				<tal:categories repeat="category context/available_category">
-
-				<li><a href=""
-							tal:attributes="href string:${context/absolute_url}?getCategories=${category}&getCompatibility=any"
-							tal:content="category"
-							><tal:comment replace="nothing">Extension releases</tal:comment></a></li>
-				</tal:categories>
-			</ol>
-
-             <div class="installinstructions" tal:condition="context/install_instructions">
-            <h3>Install Instructions</h3>
-            <p tal:replace="structure context/install_instructions/output" />
-
-        </div>
-        <div class="bugreporting" tal:condition="context/reporting_bugs">
-            <h3>Reporting Extension-Bugs</h3>
-            <p tal:replace="structure context/reporting_bugs/output" />
-        </div>
-        <div class="aboutproduct" tal:condition="context/product_description">
-            <h3>About</h3>
-            <p tal:content="structure context/product_description" />
-        </div>
 
 
 	</div>
