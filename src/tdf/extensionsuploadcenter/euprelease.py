@@ -88,10 +88,10 @@ class IEUpRelease(form.Schema):
         min_length=5
     )
 
-    releasenumber=schema.Int(
+    releasenumber=schema.Float(
         title=_(u"Release Number"),
         description=_(u"Release Number"),
-        default=1,
+        default=1.0,
     )
 
 
