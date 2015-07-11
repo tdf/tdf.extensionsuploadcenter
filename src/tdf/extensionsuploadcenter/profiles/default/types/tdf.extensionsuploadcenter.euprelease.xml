@@ -24,7 +24,7 @@
 
     <!-- enabled behaviors -->
     <property name="behaviors">
-        <element value="plone.app.content.interfaces.INameFromTitle" />
+        <element value="tdf.extensionsuploadcenter.interfaces.INameForRelease" />
         <!-- IReferenceable might not be available, but it will not break. -->
         <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
         <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable" />
