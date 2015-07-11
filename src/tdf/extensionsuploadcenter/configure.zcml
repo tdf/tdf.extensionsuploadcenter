@@ -1,5 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
@@ -8,7 +9,7 @@
 
     <include package="five.grok" />
 
-
+    <include package="plone.behavior" file="meta.zcml" />
     <includeDependencies package="." />
     <grok:grok package="." />
     <include file="permissions.zcml" />
@@ -28,6 +29,17 @@
   <browser:resourceDirectory
       name="tdf.extensionsuploadcenter"
       directory="static" />
+
+
+  <plone:behavior
+
+      title="Name from product name and release number"
+      description="generates a name from product name and release number"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      provides=".behaviors.INameForRelease"
+      factory=".behaviors.NameForRelease"
+      />
+
 
 
 </configure>
