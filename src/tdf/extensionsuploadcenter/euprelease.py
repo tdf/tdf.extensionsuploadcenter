@@ -81,12 +81,13 @@ class AcceptLegalDeclaration(Invalid):
 class IEUpRelease(form.Schema):
 
 
-
+    form.mode(title = 'display')
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Release Title"),
         min_length=5
     )
+
 
     releasenumber=schema.Float(
         title=_(u"Release Number"),
@@ -328,6 +329,11 @@ def contactinfoDefaultValue(data):
     return data.context.contactAddress
 
 
+@form.default_value(field=IEUpRelease['title'])
+def releaseDefaultTitleValue(data):
+    return data.context.title
+
+
 
 #View
 class View(dexterity.DisplayForm):
@@ -336,6 +342,10 @@ class View(dexterity.DisplayForm):
 
     def canPublishContent(self):
         return checkPermission('cmf.ModifyPortalContent', self.context)
+
+
+
+
 
 
 
