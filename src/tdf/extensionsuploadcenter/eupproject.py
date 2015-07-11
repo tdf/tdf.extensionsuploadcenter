@@ -133,6 +133,14 @@ class IEUpProject(form.Schema):
             raise ProvideScreenshotLogo(_(u'Please add a Screenshot or a Logo to your project page'))
 
 
+@form.default_value(field=IEUpProject['category_choice'])
+def defaultCategory(self):
+    categories = list( self.context.available_category)
+    defaultcategory = categories[0]
+    return [defaultcategory]
+
+
+
 
 @grok.subscribe(IEUpProject, IActionSucceededEvent)
 def notifyProjectManager (eupproject, event):
