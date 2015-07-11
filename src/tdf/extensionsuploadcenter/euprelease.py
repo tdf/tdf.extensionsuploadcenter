@@ -81,7 +81,6 @@ class AcceptLegalDeclaration(Invalid):
 class IEUpRelease(form.Schema):
 
 
-    form.mode(title = 'display')
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Release Title"),
@@ -330,8 +329,9 @@ def contactinfoDefaultValue(data):
 
 
 @form.default_value(field=IEUpRelease['title'])
-def releaseDefaultTitleValue(data):
-    return data.context.title
+def releaseDefaultTitleValue(self):
+    title= self.context.title
+    return (title)
 
 
 
