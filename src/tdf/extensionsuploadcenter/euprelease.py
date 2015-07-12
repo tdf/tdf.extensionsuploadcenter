@@ -61,17 +61,6 @@ yesnochoice = SimpleVocabulary(
      SimpleTerm(value=1, title=_(u'Yes')),]
     )
 
-def isNotEmptyLicenseChoice(value):
-     if not value:
-         raise Invalid(u"You had to choose at least one license for your release.")
-     return True
-
-
-def isNotEmptyCompatibilityChoice(value):
-    if not value:
-        raise Invalid(u"You had to choose at least one product version for your release.")
-    return True
-
 
 class AcceptLegalDeclaration(Invalid):
     __doc__ = _(u"It is necessary that you accept the Legal Declaration")
@@ -127,7 +116,6 @@ class IEUpRelease(form.Schema):
         title=_(u'License of the uploaded file'),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailLicenses),
-        constraint = isNotEmptyLicenseChoice,
         required=True,
     )
 
@@ -136,7 +124,6 @@ class IEUpRelease(form.Schema):
         title=_(u"Compatible with versions of LibreOffice"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
         value_type=schema.Choice(source=vocabAvailVersions),
-        constraint = isNotEmptyCompatibilityChoice,
         required=True,
     )
 
@@ -332,6 +319,24 @@ def contactinfoDefaultValue(data):
 def releaseDefaultTitleValue(self):
     title= self.context.title
     return (title)
+
+@form.default_value(field=IEUpRelease['licenses_choice'])
+def defaultLicense(self):
+    licenses = list( self.context.available_licenses)
+    defaultlicenses = licenses[0]
+    return [defaultlicenses]
+
+@form.default_value(field=IEUpRelease['compatibility_choice'])
+def defaultcompatibility(self):
+    compatibility = list( self.context.available_versions)
+    defaultcompatibility = compatibility[0]
+    return [defaultcompatibility]
+
+@form.default_value(field=IEUpRelease['platform_choice'])
+def defaultplatform(self):
+    platform = list( self.context.available_platforms)
+    defaultplatform = platform[0]
+    return [defaultplatform]
 
 
 
