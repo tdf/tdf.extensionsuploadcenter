@@ -18,7 +18,7 @@ from Products.CMFCore.interfaces import IActionSucceededEvent
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from tdf.extensionsuploadcenter.euprelease import IEUpRelease
 from plone.indexer import indexer
-
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
 
 checkEmail = re.compile(
@@ -87,9 +87,10 @@ class IEUpProject(form.Schema):
     )
 
     dexteritytextindexer.searchable('category_choice')
+    form.widget(category_choice=CheckBoxFieldWidget)
     category_choice = schema.List(
         title=_(u"Choose your categories"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more categories your project and product belongs to."),
         value_type=schema.Choice(source=vocabCategories),
         constraint = isNotEmptyCategory,
         required=True
