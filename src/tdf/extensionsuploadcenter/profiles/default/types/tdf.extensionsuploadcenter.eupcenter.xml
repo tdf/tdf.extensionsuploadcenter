@@ -28,10 +28,10 @@
         <!-- IReferenceable might not be available, but it will not break. -->
         <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
 
-        <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable" />
         <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
         <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
         <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
+        <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
     </property>
 
     <!-- View information -->
