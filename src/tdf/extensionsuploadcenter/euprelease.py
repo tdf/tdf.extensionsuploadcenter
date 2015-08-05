@@ -8,6 +8,7 @@ from zope.security import checkPermission
 from zope.interface import invariant, Invalid
 from Acquisition import aq_inner, aq_parent, aq_get, aq_chain
 from plone.namedfile.field import NamedBlobFile
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
 
 
@@ -112,6 +113,7 @@ class IEUpRelease(form.Schema):
         required=True
     )
 
+    form.widget(licenses_choice=CheckBoxFieldWidget)
     licenses_choice= schema.List(
         title=_(u'License of the uploaded file'),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -119,7 +121,7 @@ class IEUpRelease(form.Schema):
         required=True,
     )
 
-
+    form.widget(compatibility_choice=CheckBoxFieldWidget)
     compatibility_choice= schema.List(
         title=_(u"Compatible with versions of LibreOffice"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -173,7 +175,7 @@ class IEUpRelease(form.Schema):
     )
 
 
-
+    form.widget(platform_choice=CheckBoxFieldWidget)
     platform_choice= schema.List(
         title=_(u" First uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -202,7 +204,7 @@ class IEUpRelease(form.Schema):
     )
 
 
-
+    form.widget(platform_choice1=CheckBoxFieldWidget)
     platform_choice1= schema.List(
         title=_(u"Second uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -218,7 +220,7 @@ class IEUpRelease(form.Schema):
     )
 
 
-
+    form.widget(platform_choice2=CheckBoxFieldWidget)
     platform_choice2= schema.List(
         title=_(u"Third uploaded file is compatible with the Platform(s))"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -232,6 +234,7 @@ class IEUpRelease(form.Schema):
         required=False,
     )
 
+    form.widget(platform_choice3=CheckBoxFieldWidget)
     platform_choice3= schema.List(
         title=_(u"Fourth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -245,13 +248,14 @@ class IEUpRelease(form.Schema):
         fields=['file4', 'platform_choice4', 'file5', 'platform_choice5']
     )
 
+
     file4 = NamedBlobFile(
         title=_(u"The fifth file you want to upload (this is optional)"),
         description=_(u"Please upload your file."),
         required=False,
     )
 
-
+    form.widget(platform_choice4=CheckBoxFieldWidget)
     platform_choice4= schema.List(
         title=_(u"Fifth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
@@ -265,6 +269,7 @@ class IEUpRelease(form.Schema):
         required=False,
     )
 
+    form.widget(platform_choice5=CheckBoxFieldWidget)
     platform_choice5= schema.List(
         title=_(u"Sixth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
