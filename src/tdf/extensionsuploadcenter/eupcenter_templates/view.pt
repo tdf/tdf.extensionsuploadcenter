@@ -242,7 +242,7 @@
                                 <span tal:content="context/product_title" i18n:name="product_title" />
                             </h1>
                         	<h1 tal:condition="not:context/product_title" i18n:translate="">Extensions</h1>
-                        	<span tal:content="structure context/addon_description | nothing"/>
+                        	<span tal:content="structure context/product_description | nothing"/>
                         <p class="current-projects" i18n:translate="">Currently there are
                             <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> project(s) with
                             <span tal:content="view/euprelease_count" /> release(s) available.</p>
