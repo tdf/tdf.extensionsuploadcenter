@@ -116,7 +116,7 @@ class IEUpRelease(form.Schema):
     form.widget(licenses_choice=CheckBoxFieldWidget)
     licenses_choice= schema.List(
         title=_(u'License of the uploaded file'),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more licenses you publish your release."),
         value_type=schema.Choice(source=vocabAvailLicenses),
         required=True,
     )
@@ -124,7 +124,7 @@ class IEUpRelease(form.Schema):
     form.widget(compatibility_choice=CheckBoxFieldWidget)
     compatibility_choice= schema.List(
         title=_(u"Compatible with versions of LibreOffice"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more program versions with which this release is compatible with."),
         value_type=schema.Choice(source=vocabAvailVersions),
         required=True,
     )
@@ -178,7 +178,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice=CheckBoxFieldWidget)
     platform_choice= schema.List(
         title=_(u" First uploaded file is compatible with the Platform(s)"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -207,7 +207,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice1=CheckBoxFieldWidget)
     platform_choice1= schema.List(
         title=_(u"Second uploaded file is compatible with the Platform(s)"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -223,7 +223,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice2=CheckBoxFieldWidget)
     platform_choice2= schema.List(
         title=_(u"Third uploaded file is compatible with the Platform(s))"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -237,7 +237,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice3=CheckBoxFieldWidget)
     platform_choice3= schema.List(
         title=_(u"Fourth uploaded file is compatible with the Platform(s)"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -258,7 +258,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice4=CheckBoxFieldWidget)
     platform_choice4= schema.List(
         title=_(u"Fifth uploaded file is compatible with the Platform(s)"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
@@ -272,7 +272,7 @@ class IEUpRelease(form.Schema):
     form.widget(platform_choice5=CheckBoxFieldWidget)
     platform_choice5= schema.List(
         title=_(u"Sixth uploaded file is compatible with the Platform(s)"),
-        description=_(u"Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."),
+        description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
