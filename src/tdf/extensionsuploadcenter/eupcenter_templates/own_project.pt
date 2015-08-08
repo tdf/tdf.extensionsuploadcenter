@@ -1,3 +1,13 @@
+<html tal:omit-tag=""
+      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="tdf.extensionsuploadcenter">
+
+
+
 <div id="ownProjects">
 <h2>Your Own Projects</h2>
         <p>This are your projects on this site:</p>
@@ -57,3 +67,5 @@
 
 
 </div>
+
+</html>
