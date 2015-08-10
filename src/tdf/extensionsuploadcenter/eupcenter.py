@@ -20,12 +20,12 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 from Acquisition import aq_inner
-from zope.lifecycleevent.interfaces import IObjectAddedEvent
+from zope.lifecycleevent.interfaces import IObjectAddedEvent, IObjectModifiedEvent
 from tdf.extensionsuploadcenter.eupproject import IEUpProject
 
 from plone.app.layout.viewlets.interfaces import IAboveContentTitle
-
-
+from zope.lifecycleevent import modified
+from plone import api
 
 
 
@@ -102,7 +102,8 @@ class IEUpCenter(form.Schema):
                  'LibreOffice 4.1',
                  'LibreOffice 4.2',
                  'LibreOffice 4.3',
-                 'LibreOffice 4.4',],
+                 'LibreOffice 4.4',
+                 'LibreOffice 5.0'],
         value_type=schema.TextLine())
 
     available_platforms = schema.List(title=_(u"Available Platforms"),
@@ -169,6 +170,25 @@ def notifyAboutNewProject(eupproject, event):
     return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 
+@grok.subscribe(IEUpCenter, IObjectModifiedEvent)
+def notifiyAboutNewVersion(eupproject, event):
+    if hasattr(event, 'descriptions') and event.descriptions:
+        for d in event.descriptions:
+            if d.interface is IEUpCenter and 'available_versions' in d.attributes:
+                users=api.user.get_users()
+                message='We added a new version of LibreOffice to the list.\n' \
+                        'Please add this version to your LibreOffice extension release(s), ' \
+                        'if it is (they are) compatible with this version.\n\n' \
+                        'Kind regards,\n\n' \
+                        'The LibreOffice Extension and Template Site Administration Team'
+                for f in users:
+                    mailaddress = f.getProperty('email')
+                    api.portal.send_email(
+                        recipient=mailaddress,
+                        sender="noreply@libreoffice.org",
+                        subject="New Version of LibreOffice Added",
+                        body=message,
+                    )
 
 
 
@@ -235,7 +255,6 @@ class View(dexterity.DisplayForm):
         if category:
             contentFilter['getCategories'] = category
 
-
         return self.catalog(**contentFilter)
 
 
@@ -251,7 +270,6 @@ class View(dexterity.DisplayForm):
                          'portal_type' : 'tdf.extensionsuploadcenter.eupproject'}
         return self.catalog(**contentFilter)
 
-      #  return results
 
     def get_newest_products(self):
         self.catalog = getToolByName(self.context, 'portal_catalog')
@@ -270,7 +288,6 @@ class View(dexterity.DisplayForm):
     def category_name(self):
         category = list(self.context.available_category)
         return category
-
 
 
 
