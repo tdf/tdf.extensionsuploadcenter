@@ -165,7 +165,7 @@
                             <span tal:replace="python:len(results)" i18n:name="results_eupprojects">234</span> projects matching your criteria.
                         </p>
 
-                        <tal:results
+                        <tal:results condition="results"
                                      define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
                             <ul class="downloads">
                                 <li tal:repeat="result batch">
