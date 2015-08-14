@@ -73,7 +73,11 @@
 						      tal:condition="not:screenshot">
 
 
-            <img tal:condition="project/project_logo|nothing" tal:replace="structure project/@@images/project_logo" />
+            <img tal:condition="project/project_logo|nothing"
+                    tal:define="scales project/@@images;
+                            projectlogo project/@@images/project_logo;
+                     scale python:scales.scale('project_logo', 'tile')"
+                     tal:replace="structure python:scale and scale.tag(css_class='eupcenterprojectlogo') or None" />
             </span>
 
                               <h3 style="border-top: none">
