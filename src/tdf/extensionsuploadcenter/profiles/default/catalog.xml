@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
+    <index name="acceptedLegalDeclaration" meta_type="FieldIndex">
+        <indexed_attr value="accept_legal_declaration" />
+    </index>
     <index name="getCompatibility" meta_type="KeywordIndex">
-        <indexed_attr value="getCompatibility" />
+        <indexed_attr value="compatibility_choice" />
     </index>
     <index name="getCategories" meta_type="KeywordIndex">
         <indexed_attr value="category_choice" />
