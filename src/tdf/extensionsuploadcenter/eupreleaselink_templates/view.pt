@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tdf.extensionsuploadcenter">
+
+
+<head>
+    <metal:block fill-slot="top_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++tdf.extensionsuploadcenter/extuploadcenter.css"
+            />
+        <tal:noborder condition="python:not user.has_permission('Modify portal content', context)">
+            <tal:noborderset tal:define="dummy python:request.set('disable_border', 1)" />
+        </tal:noborder>
+    </metal:block>
+</head>
+
+<body>
+
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+         <dl class="portalinfomessage"
+            tal:define="is_editable context/@@plone_context_state/is_editable;"
+            tal:condition="python: is_editable">
+            <dt i18n:translate="">Info</dt>
+            <dd>
+                <span i18n:translate="help_message_remember_is_editable">Remember to publish your release once all files have been added.</span>
+            </dd>
+        </dl>
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+       <div class="grid-row">
+            <div class="grid-cell position-leftmost width-two-thirds">
+                <div class="paneeucrelease">
+
+         <h1 class="documentFirstHeading"><span tal:content="context/title" /> - <span tal:content="context/releasenumber" /></h1>
+
+        <div class="discreet" tal:condition="view/canPublishContent" i18n:translate="suggest_publish">
+            Please don't forget to publish your release.
+        </div>
+
+      <p class="documentDescription" tal:content="context/description/title" />
+        <h4 class="extcenter" i18n:translate="title_release_details">Release Details</h4>
+      <p class="documentDescription" tal:content="structure view/w/details/render" />
+     <h4 class="tupcenter" i18n:translate="title_development_status">Development Status</h4>
+      <div class="tupcenterdevstat" tal:content="structure view/w/developmentstatus_choice/render" />
+
+     <h4 class="tupcenterlicense" i18n:translate="title_license_s">License(s)</h4>
+      <div class="tupcenterlicense" tal:content="structure view/w/licenses_choice/render" />
+      <h4 class="tupcentercompatibility" i18n:translate="title_compatibility">Compatibility</h4>
+      <div class="tupcentercompatibility" tal:content="structure view/w/compatibility_choice/render" />
+        <h4 class="documentSecondheading">Changelog</h4>
+        <div class="tupcenterchangelog" tal:content="structure view/w/changelog/render" />
+
+        <h2 class="tupcenter" i18n:translate="title_available_downloads">Available Downloads</h2>
+
+      <div  class="tupcenterfile">
+          <p tal:condition="context/link_to_file"> <a i18n:translate="label_template_file" tal:attributes=" href context/link_to_file">
+        The linked Template file</a><span class="tupcenterplatform" tal:content="structure view/w/platform_choice/render" /></p>
+
+          </div>
+
+      <h4 class="tupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
+      <div class="tupcenterlegaldownload" tal:content="structure context/legal_downloaddisclaimer/output" />
+
+                    </div>
+          </div>
+           <div class="grid-cell position-two-thirds width-third">
+		<div class="sidebar">
+            <div id="projectresources">
+            <h2 i18n:translate="title_project_resources">Project Resources</h2>
+                <ul>
+            <li tal:condition="context/documentation_link">
+                <a href="" tal:attributes="href context/documentation_link">External Documentation</a>
+            </li>
+                <li tal:condition="context/homepage">
+
+                <a href="" tal:attributes="href context/homepage">External Project Page</a>
+                </li>
+            </ul>
+
+
+        <div tal:condition="context/screenshot">
+            <h4 i18n:translate="title_screenshot">Screenshot</h4>
+              <div class="eupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
+                   tal:condition="nocall:screenshot">
+              <img tal:define="scales context/@@images"
+                   tal:replace="structure python: scales.tag('screenshot',
+                        width=250, height=200, direction='down')" />
+
+        </div>
+            </div>
+                </div>
+
+        <div tal:condition="context/link_to_source">
+            <h4 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h4>
+            <p tal:content="context/link_to_source">The Link to the Source Code</p>
+        </div>
+            <div class="eupcenterreleaseinstallinstructions" tal:condition="context/install_instructions">
+            <h3>Install Instructions</h3>
+            <span tal:content="structure context/install_instructions/output" />
+        </div>
+            <div class="eupcenterreleasereportingbugs" tal:condition="context/reporting_bugs">
+                <h3>Reporting Extension-Bugs</h3>
+                <span tal:content="structure context/reporting_bugs/output" />
+            </div>
+
+            </div>
+        </div>
+           </div>
+
+          </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
