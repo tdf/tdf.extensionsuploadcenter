@@ -65,22 +65,22 @@
 
 
       <p tal:condition="context/file"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file/filename}">
-        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice/render" /></p>
+        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice/render" /><br />File size: <span tal:content="python:context.file.size /1024" /> kb</p>
 
        <p tal:condition="context/file1"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file1/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file1/filename}">
-        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice1/render" /></p>
+        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice1/render" /><br />File size: <span tal:content="python:context.file1.size /1024" /> kb</p>
 
         <p tal:condition="context/file2"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file2/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file2/filename}">
-        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice2/render" /></p>
+        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice2/render" /><br />File size: <span tal:content="python:context.file2.size /1024" /> kb</p>
 
       <p tal:condition="context/file3"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file3/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file3/filename}">
-        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice3/render" /></p>
+        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice3/render" /><br />File size: <span tal:content="python:context.file3.size /1024" /> kb</p>
 
       <p tal:condition="context/file4"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file4/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file4/filename}">
-        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice4/render" /></p>
+        The Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice4/render" /><br />File size: <span tal:content="python:context.file4.size /1024" /> kb</p>
 
        <p tal:condition="context/file5"> <a i18n:translate="label_extension_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file5/filename}"><img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a> <a i18n:translate="label_template_file" tal:attributes="href string:${context/absolute_url}/@@download/file/${context/file5/filename}">
-        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice5/render" /></p>
+        The Template file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice5/render" /><br />File size: <span tal:content="python:context.file5.size /1024" /> kb</p>
         </div>
 
       <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
