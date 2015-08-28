@@ -17,6 +17,7 @@ from Products.validation import V_REQUIRED
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from tdf.extensionsuploadcenter.euprelease import IEUpRelease
+from tdf.extensionsuploadcenter.eupreleaselink import IEUpReleaseLink
 from plone.indexer import indexer
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
@@ -222,3 +223,50 @@ grok.global_adapter(ValidateEUpProjectUniqueness)
 class View(dexterity.DisplayForm):
     grok.context(IEUpProject)
     grok.require('zope2.View')
+
+
+    def all_releases(self):
+        """Get a list of all releases, ordered by version, starting with the latest.
+        """
+        proj = self.context
+
+        catalog = getToolByName(proj, 'portal_catalog')
+        res = catalog.searchResults(
+            portal_type = ('tdf.extensionsuploadcenter.euprelease', 'tdf.extensionsuploadcenter.eupreleaselink'),
+            path = '/'.join(proj.getPhysicalPath()),
+            sort_on = 'id',
+            sort_order = 'reverse')
+        return [r.getObject() for r in res]
+
+
+    def latest_release(self):
+        """Get the most recent final release or None if none can be found.
+        """
+
+        proj = self.context
+        res = None
+        catalog = getToolByName(proj, 'portal_catalog')
+
+        res = catalog.searchResults(
+            portal_type = ('tdf.extensionsuploadcenter.euprelease', 'tdf.extensionsuploadcenter.eupreleaselink'),
+            path = '/'.join(proj.getPhysicalPath()),
+            review_state = 'published',
+            sort_on = 'id',
+            sort_order = 'reverse')
+
+        if not res:
+            return None
+        else:
+            return res[0].getObject()
+
+
+    def latest_release_date(self):
+        """Get the date of the latest release
+        """
+
+        latest_release = self.latest_release()
+        if latest_release:
+            return self.context.toLocalizedTime(latest_release.effective())
+        else:
+            return None
+
