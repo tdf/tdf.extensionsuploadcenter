@@ -162,6 +162,14 @@ def notifyProjectManagerReleaseAdd (eupproject, event):
     source = "%s <%s>" % ('Admin of the LibreOffice Extensions site', 'extensions@libreoffice.org')
     return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
+@grok.subscribe(IEUpReleaseLink,IObjectAddedEvent)
+def notifyProjectManagerReleaseLinkedAdd (eupproject, event):
+    mailhost = getToolByName(eupproject, 'MailHost')
+    toAddress = "%s" % (eupproject.contactAddress)
+    message = "The new release %s was added to your LibreOffice extension project" % (eupproject.title)
+    subject = "A new release was added to your LibreOffice templates project"
+    source = "%s <%s>" % ('Admin of the LibreOffice Extension site', 'extensions@libreoffice.org')
+    return mailhost.send(message, mto=toAddress, mfrom=str(source), subject=subject, charset='utf8')
 
 def getLatestRelease(self):
 
