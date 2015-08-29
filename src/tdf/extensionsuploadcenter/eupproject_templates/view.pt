@@ -122,7 +122,7 @@
             <dl>
                 <span tal:condition="not:python:latestRelease.portal_type == 'tdf.extensionsuploadcenter.eupreleaselink'">
                     <span tal:condition="latestRelease/file">
-                         <a i18n:translate="label_template_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file/${latestRelease/file/filename}">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file/${latestRelease/file/filename}">
                         <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
                         <tal:loop repeat="platform_choice latestRelease/platform_choice">
                             <dl><div tal:content="platform_choice" /></dl>
@@ -131,7 +131,100 @@
                        <span>File size: </span> <span tal:content="python:latestRelease.file.size / 1024" /><span> kb</span>
                             </div>
                      </span>
-
+                    <span tal:condition="latestRelease/file1">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file1/${latestRelease/file1/filename}">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice1">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                        <div class="eucfilesize">
+                       <span>File size: </span> <span tal:content="python:latestRelease.file1.size / 1024" /><span> kb</span>
+                            </div>
+                    </span>
+                    <span tal:condition="latestRelease/file2">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file2/${latestRelease/file2/filename}">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice2">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                        <div class="eucfilesize">
+                       <span>File size: </span> <span tal:content="python:latestRelease.file2.size / 1024" /><span> kb</span>
+                            </div>
+                    </span>
+                    <span tal:condition="latestRelease/file3">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file3/${latestRelease/file3/filename}">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice3">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                        <div class="eucfilesize">
+                       <span>File size: </span> <span tal:content="python:latestRelease.file3.size / 1024" /><span> kb</span>
+                            </div>
+                    </span>
+                    <span tal:condition="latestRelease/file4">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file4/{latestRelease/file4/filename}">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice4">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                        <div class="eucfilesize">
+                       <span>File size: </span> <span tal:content="python:latestRelease.file4.size / 1024" /><span> kb</span>
+                            </div>
+                    </span>
+                    <span tal:condition="latestRelease/file5">
+                         <a i18n:translate="label_extension_file" tal:attributes="href string:${latestRelease/absolute_url}/@@download/file5/${latestRelease/file5/filename}">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice5">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                        <div class="eucfilesize">
+                       <span>File size: </span> <span tal:content="python:latestRelease.file5.size / 1024" /><span> kb</span>
+                            </div>
+                    </span>
+                </span>
+                <span tal:condition="python:latestRelease.portal_type == 'tdf.templateuploadcenter.tupreleaselink'">
+                    <span tal:condition="latestRelease/link_to_file">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
+                    <span tal:condition="latestRelease/link_to_file1">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file1">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice1">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
+                    <span tal:condition="latestRelease/link_to_file2">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file2">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice2">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
+                    <span tal:condition="latestRelease/link_to_file3">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file3">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice3">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
+                    <span tal:condition="latestRelease/link_to_file4">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file4">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice4">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
+                    <span tal:condition="latestRelease/link_to_file5">
+                        <a i18n:translate="label_extension_file" tal:attributes=" href latestRelease/link_to_file5">
+                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
+                        <tal:loop repeat="platform_choice latestRelease/platform_choice5">
+                            <dl><div tal:content="platform_choice" /></dl>
+                         </tal:loop>
+                    </span>
                 </span>
             </dl>
 
