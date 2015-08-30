@@ -234,83 +234,48 @@
              <h2 i18n:translate="">All Releases</h2>
 
 
-<table class="tupcenterprojecttable" border="1" width="100%">
+<table class="eupcenterprojecttable" border="1" width="100%">
             <thead>
             <tr bgcolor="#40FB27">
-                <td><h4 i18n:translate="title_extension">Extension</h4></td>
-                <td><h4 i18n:translate="title_file">File</h4></td>
-                <td><h4 i18n:translate="title_description">Description</h4></td>
-                <td><h4 i18n:translate="title_compatiblity">Compatibility</h4></td>
+                <td><h4 i18n:translate="title_extension">Extension Version</h4></td>
                 <td><h4 i18n:translate="title_platform">Platform(s)</h4></td>
+                <td><h4 i18n:translate="title_compatiblity">Compatibility</h4></td>
+                <td><h4 i18n:translate="title_description">Description</h4></td>
                 <td><h4 i18n:translate="title_lisenses">License(s)</h4></td>
                 <td><h4 i18n:translate="title_development_status">Development <br />Status</h4></td>
             </tr>
             </thead>
-            <tbody tal:repeat="item container/values">
-            <tr bgcolor="#EEEEEE" tal:condition="repeat/item/even">
-                <td> <h4><a tal:attributes="href item/getId">
-           <span tal:content="item/Title" /> - <span tal:content="item/releasenumber" /></a></h4>
-                </td>
-                <td><span tal:condition="item/file">
-                    <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
-                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
-                    </span>
-                </td>
-                <td tal:content="item/Description">Description</td>
-
-                <td>
-                  <ul>
-                      <tal:loop repeat="compatibility_choice item/compatibility_choice">
+             <tbody>
+             <tal:loop repeat="release all_releases">
+             <tr>
+                 <td>
+                 <h4><a tal:attributes="href release/getId">
+                     <span tal:content="release/Title" /> - <span tal:content="release/releasenumber" /></a></h4>
+                 </td>
+                 <td>
+                     <ul><tal:loop repeat="platform_choice release/platform_choice">
+                         <li><div tal:content="platform_choice"/></li>
+                     </tal:loop></ul>
+                 </td>
+                 <td>
+                     <ul>
+                         <tal:loop repeat="compatibility_choice release/compatibility_choice">
                             <li><div tal:content="compatibility_choice"/></li>
-                      </tal:loop></ul>
+                         </tal:loop>
+                     </ul>
                 </td>
-<td>
-<ul><tal:loop repeat="platform_choice item/platform_choice">
-    <li><div tal:content="platform_choice"/></li>
-    </tal:loop></ul>
-</td>
-<td>
-<ul><tal:loop repeat="licenses_choice item/licenses_choice">
-    <li><div tal:content="licenses_choice"/></li>
-    </tal:loop></ul>
-</td>
-<td tal:content="item/developmentstatus_choice">Development Status</td>
-            </tr>
-
-            <tr bgcolor="#F1FB9B" tal:condition="repeat/item/odd">
-                <td> <h4><a tal:attributes="href item/getId">
-                <span tal:content="item/Title" /> - <span tal:content="item/releasenumber" /></a></h4>
-                </td>
-                <td><span tal:condition="item/file">
-                    <a i18n:translate="label_extension_file" tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
-                        <img src="++resource++tdf.extensionsuploadcenter/download_icon.gif" /></a>
-                    </span>
-</td>
-                <td tal:content="item/Description">Description</td>
-
+                <td tal:content="release/Description">Description</td>
                 <td>
-<ul><tal:loop repeat="compatibility_choice item/compatibility_choice">
-    <li><div tal:content="compatibility_choice"/></li>
-    </tal:loop></ul>
-</td>
-<td>
-<ul><tal:loop repeat="platform_choice item/platform_choice">
-    <li><div tal:content="platform_choice"/></li>
-    </tal:loop></ul>
-</td>
-<td>
-<ul><tal:loop repeat="licenses_choice item/licenses_choice">
-    <li><div tal:content="licenses_choice"/></li>
-    </tal:loop></ul>
-</td>
-<td tal:content="item/developmentstatus_choice">Development Status</td>
-            </tr>
-
-            </tbody>
-
-
-
-        </table>
+                    <ul>
+                        <tal:loop repeat="licenses_choice release/licenses_choice">
+                            <li><div tal:content="licenses_choice"/></li>
+                        </tal:loop></ul>
+                </td>
+                <td tal:content="release/developmentstatus_choice">Development Status</td>
+             </tr>
+             </tal:loop>
+             </tbody>
+             </table>
 
 
       <h4 class="eupcenterlegaldownload" tal:content="structure context/title_legaldownloaddisclaimer" />
