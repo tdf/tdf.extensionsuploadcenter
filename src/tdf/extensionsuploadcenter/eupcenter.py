@@ -81,15 +81,16 @@ class IEUpCenter(form.Schema):
 
 
     available_licenses =schema.List(title=_(u"Available Licenses"),
-        default=['GNU-GPL-v2 (GNU General Public License Version 2)',
-                 'GNU-GPL-v3 (General Public License Version 3)',
-                 'LGPL-v2.1 (GNU Lesser General Public License Version 2.1)',
+        default=['GNU-GPL-v3+ (General Public License Version 3 and later)',
+                 'GNU-GPL-v2 (GNU General Public License Version 2)',
                  'LGPL-v3+ (GNU Lesser General Public License Version 3 and later)',
+                 'LGPL-v2.1 (GNU Lesser General Public License Version 2.1)',
                  'BSD (BSD License (revised))',
-                 'MPL-v1.1 (Mozilla Public License Version 1.1',
-                 'MPL-v2.0 (Mozilla Public License Version 2.0',
+                 'MPL-v2.0+ (Mozilla Public License Version 2.0 or later)',
+                 'MPL-v1.1 (Mozilla Public License Version 1.1)',
+                 'CC-BY-SA-v4 (Creative Commons Attribution-ShareAlike 4.0 International)'
                  'CC-by-sa-v3 (Creative Commons Attribution-ShareAlike 3.0)',
-                 'OSI (Other OSI Approved)'],
+                 'ASF-v2 (Apache License Version 2.0)'],
         value_type=schema.TextLine())
 
     available_versions = schema.List(title=_(u"Available Versions"),
