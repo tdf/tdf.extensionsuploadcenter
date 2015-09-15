@@ -1,10 +1,16 @@
 <?xml version="1.0"?>
 <object name="portal_workflow">
     <object name="tdf_extensionsuploadcenter_projects_workflow" meta_type="Workflow"/>
+    <object name="tdf_extensionsuploadcenter_release_workflow" meta_type="Workflow" />
     <bindings>
-        <default>
+        <type type_id="tdf.extensionsuploadcenter.eupproject">
             <bound-workflow workflow_id="tdf_extensionsuploadcenter_projects_workflow"/>
-        </default>
-        <type type_id="tdf.extensionsuploadcenter.project" />
-     </bindings>
+        </type>
+        <type type_id="tdf.extensionsuploadcenter.euprelease">
+            <bound-workflow workflow_id="tdf_extensionsuploadcenter_release_workflow" />
+        </type>
+        <type type_id="tdf.extensionsuploadcenter.eupreleaselink">
+            <bound-workflow workflow_id="tdf_extensionsuploadcenter_release_workflow" />
+        </type>
+    </bindings>
 </object>
