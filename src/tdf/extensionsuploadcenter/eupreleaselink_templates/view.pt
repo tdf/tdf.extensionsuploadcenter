@@ -62,7 +62,7 @@
 
       <div  class="tupcenterfile">
           <p tal:condition="context/link_to_file"> <a i18n:translate="label_extension_file" tal:attributes=" href context/link_to_file">
-        The linked Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice/render" /></p>
+        The linked Extension file</a><span class="eupcenterplatform" tal:content="structure view/w/platform_choice/render" />
           <span tal:condition="context/external_file_size">
              <br />File size: <span tal:content="structure context/external_file_size" /> kb
           </span>
