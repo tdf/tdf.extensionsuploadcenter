@@ -72,7 +72,7 @@ class IEUpProject(form.Schema):
         title=_(u"Title"),
         description=_(u"Project Title - minimum 5 and maximum 50 characters"),
         min_length=5,
-        max_length=50
+        max_length=100
     )
     
     dexteritytextindexer.searchable('description')
