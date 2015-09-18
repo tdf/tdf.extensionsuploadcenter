@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-21 19:48+0000\n"
+"POT-Creation-Date: 2015-09-17 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,40 +17,87 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tdf.extensionsuploadcenter\n"
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:123
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:136
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:136
 msgid ""
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:36
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:186
+msgid " First linked file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:180
+msgid " First uploaded file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:270
+msgid " Fourth linked file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:223
+msgid " Second linked file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:246
+msgid " Third linked file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:249
 msgid "${product_title}"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:53
-msgid "${product_title} Releases"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:100
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:169
 msgid "${results_eupprojects} projects matching your criteria."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:96
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/own_project.pt:64
+msgid "<img src=\"++resource++tdf.extensionsuploadcenter/yellowarrow.png\" alt=\"\" /> ${product_title_eupproject}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:258
+msgid "<img src=\"++resource++tdf.extensionsuploadcenter/yellowarrow.png\" alt=\"\" /> Submit your ${product_title_eupproject}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:43
+msgid "<img src=\"++resource++tdf.extensionsuploadcenter/yellowarrow.png\" alt=\"\" /> a Release to your ${product_title_eupproject} Project"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:50
+msgid "<img src=\"++resource++tdf.extensionsuploadcenter/yellowarrow.png\" alt=\"\" /> a linked Release to your ${product_title_eupproject} Project"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:105
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:105
 msgid "A detailed log of what has changed since the previous release."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:135
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/types/tdf.extensionsuploadcenter.eupreleaselink.xml
+msgid "A linked extension release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:148
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:148
 msgid "Accept the above legal disclaimer"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:98
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:121
 msgid "Add a logo for the project (or organization/company) by clicking the 'Browse' button."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:104
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:127
 msgid "Add a screenshot by clicking the 'Browse' button."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:60
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:241
+msgid "All Releases"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:130
 msgid "All categories"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Alpha Release"
 msgstr ""
 
 #: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/types/tdf.extensionsuploadcenter.eupcenter.xml
@@ -65,70 +112,95 @@ msgstr ""
 msgid "An extension release"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:63
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:67
 msgid "Available Categories"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:80
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:83
 msgid "Available Licenses"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:103
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:109
 msgid "Available Platforms"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:92
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:96
 msgid "Available Versions"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:95
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Beta Release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:306
+msgid "Browse ${product_title} by Category"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:308
+msgid "Browse Extensions by Category"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Change the release stage to 'Release alpha'"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Change the release stage to 'Release beta'"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:104
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:104
 msgid "Changelog"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:72
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:93
 msgid "Choose your categories"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:156
-msgid "Compatible with Platform(s)"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:114
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:126
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:126
 msgid "Compatible with versions of LibreOffice"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:79
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:141
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:102
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:154
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:154
 msgid "Contact email-address"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:80
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:142
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:103
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:155
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:155
 msgid "Contact email-address for the project."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:42
-msgid "Currently there are ${eup_project_count} projects with <span>${DYNAMIC_CONTENT}</span> releases available."
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:93
+msgid "Current Release"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:39
-msgid "Description of the Extensions Center"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:255
+msgid "Currently there are ${eup_project_count} project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
 msgstr ""
 
 #: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:43
+msgid "Description of the Extensions Center"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:47
 msgid "Description of the features of extensions"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:52
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:102
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:56
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:111
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:111
 msgid "Development Status"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:144
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:156
 msgid "Enter any legal disclaimer and limitations for downloads that should appear on each page for dowloadable files."
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:130
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:142
 msgid "Enter the text of the legal disclaimer and limitations that should be displayed to the project creator and should be accepted by the owner of the project."
 msgstr ""
 
@@ -136,7 +208,15 @@ msgstr ""
 msgid "Extension Center"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:48
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:121
+msgid "Extension Installation Instructions"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/types/tdf.extensionsuploadcenter.eupreleaselink.xml
+msgid "Extension Linked Release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:52
 msgid "Extension Product Name"
 msgstr ""
 
@@ -148,240 +228,597 @@ msgstr ""
 msgid "Extension Release"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:38
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:251
 msgid "Extensions"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:116
-msgid "Fill in the install instructions"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:131
-msgid "Fill in the legal disclaimer, that had to be accepted by the project owner"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:145
-msgid "Fill in the text for the legal download disclaimer"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:66
-msgid "Full Project Description"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:87
-msgid "Full Release Description"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:79
-msgid "Highest Rated"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:85
-msgid "Homepage"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:86
-msgid "If the project has an external home page, enter its URL."
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:92
-msgid "If the project has externally hosted documentation, enter its URL."
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:23
-msgid "Invalid email address"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:59
-msgid "It is necessary that you accept the Legal Declaration"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:260
+msgid "Fifth uploaded file is compatible with the Platform(s)"
 msgstr ""
 
 #: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:122
-msgid "Legal Disclaimer and Limitations"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:137
-msgid "Legal Disclaimer and Limitations for Downloads"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:108
-msgid "License of the uploaded file"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:97
-msgid "Logo"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:49
-msgid "Name of the Extension product, e.g. only Extensions or LibreOffice Extensions"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:35
-msgid "Name of the Extensions Center"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:80
-msgid "Newest"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:238
-msgid "Please accept the Legal Declaration about your Release and your Uploaded File"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:136
-msgid "Please declare that you accept the above legal disclaimer"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:149
-msgid "Please upload your file."
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:60
-msgid "Project Summary"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:55
-msgid "Project Title"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:73
-msgid "Release Number"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:80
-msgid "Release Summary"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:68
-msgid "Release Title"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:103
-msgid "Screemshot of the Template"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:85
-msgid "Search"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:58
-msgid "Show"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:76
-msgid "Sort On"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:43
-msgid "Submit your ${product_title_eupproject}"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:115
-msgid "Template Installation Instructions"
-msgstr ""
-
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:129
-msgid "Text of the Legal Disclaimer and Limitations"
+msgid "Fill in the install instructions"
 msgstr ""
 
 #: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:143
-msgid "Text of the Legal Disclaimer and Limitations for Downlaods"
+msgid "Fill in the legal disclaimer, that had to be accepted by the project owner"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:148
-msgid "The File you want to upload"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:157
+msgid "Fill in the text for the legal download disclaimer"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Final Release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Final release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:239
+msgid "Fourth uploaded file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:86
+msgid "Full Project Description"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:96
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:96
+msgid "Full Release Description"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:190
+msgid "Further File Uploads for this Release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:196
+msgid "Further linked files for this Release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Hidden"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Hidden extension release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Hide"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Hide this release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:147
+msgid "Highest Rated"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:108
+msgid "Homepage"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:109
+msgid "If the project has an external home page, enter its URL (example: 'http://www.mysite.org')."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:115
+msgid "If the project has externally hosted documentation, enter its URL (example: 'http://www.mysite.org')."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:197
+msgid "If you want to link more files for this release, e.g. because there are files for other operating systems, you'll find the fields to link this files on the register 'Further linked files for this Release'."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:191
+msgid "If you want to upload more files for this release, e.g. because there are files for other operating systems, you'll find the upload fields on the register 'File Upload 1' and 'File Upload 2'."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:30
+msgid "Info"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:128
+msgid "Instruction how to report Bugs"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:30
+msgid "Invalid email address"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:160
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:160
+msgid "Is the source code inside the extension?"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:67
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:68
+msgid "It is necessary that you accept the Legal Declaration"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:134
+msgid "Legal Disclaimer and Limitations"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:149
+msgid "Legal Disclaimer and Limitations for Downloads"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:118
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:118
+msgid "License of the uploaded file"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:120
+msgid "Logo"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:43
+msgid "Most popular ${product_title}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:264
+msgid "Most recent ${product_title}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:53
+msgid "Name of the Extension product, e.g. only Extensions or LibreOffice Extensions"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:39
+msgid "Name of the Extensions Center"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:148
+msgid "Newest"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:61
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:62
+msgid "No"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:294
+msgid "Please accept the Legal Declaration about your Release and your Uploaded File"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:291
+msgid "Please accept the Legal Declaration about your Release and your linked File"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:61
+msgid "Please add a Screenshot or a Logo to your project"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:135
+msgid "Please add a Screenshot or a Logo to your project page"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:301
+msgid "Please choose a compatible platform for the linked file."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:304
+msgid "Please choose a compatible platform for the uploaded file."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:284
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:281
+msgid "Please choose a license for your release."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:289
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:286
+msgid "Please choose one or more compatible product versions for your release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:149
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:149
+msgid "Please declare that you accept the above legal disclaimer"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:166
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:166
+msgid "Please fill in the Link (URL) to the Source Code"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:299
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:296
+msgid "Please fill in the Link (URL) to the Source Code."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:179
+msgid "Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:173
+msgid "Please insert a link to your extension file."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:94
+msgid "Please mark one or more categories your project and product belongs to."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:119
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:119
+msgid "Please mark one or more licenses you publish your release."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:224
+msgid "Please mark one or more platforms with which the linked file is compatible."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:181
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:187
+msgid "Please mark one or more platforms with which the uploaded file is compatible."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:127
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:127
+msgid "Please mark one or more program versions with which this release is compatible with."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:173
+msgid "Please upload your file."
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:80
+msgid "Project Summary"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:73
+msgid "Project Title - minimum 5 and maximum 50 characters"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Re-release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Release Candidate"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:82
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:82
+msgid "Release Number"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:89
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:89
+msgid "Release Summary"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:76
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:77
+msgid "Release Title"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Release alpha"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Release beta"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Release candidate"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Release-Candidate"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:104
+msgid "Released ${latest_release_date}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Retract"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Retract release"
 msgstr ""
 
 #: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:126
+msgid "Screemshot of the Extension"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:154
+msgid "Search"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:124
+msgid "Search ${product_title}"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:209
+msgid "Second uploaded file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:128
+msgid "Show"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:274
+msgid "Sixth uploaded file is compatible with the Platform(s)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:144
+msgid "Sort On"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:141
+msgid "Text of the Legal Disclaimer and Limitations"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:155
+msgid "Text of the Legal Disclaimer and Limitations for Downlaods"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:172
+msgid "The Link to the file of the release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:253
+msgid "The fifth file you want to upload (this is optional)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "The final stage of an extension release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:172
+msgid "The first file you want to upload"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "The first stage of an extension release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:232
+msgid "The fourth file you want to upload (this is optional)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:221
 msgid "The project title is already in use"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:54
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:67
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:201
+msgid "The second file you want to upload (this is optional)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "The second stage of an extension release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:267
+msgid "The sixth file you want to upload (this is optional)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:178
+msgid "The size of the external hosted file"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:217
+msgid "The third file you want to upload (this is optional)"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:225
+msgid "Third uploaded file is compatible with the Platform(s))"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:72
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:75
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:76
 msgid "Title"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:121
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:133
 msgid "Title for Legal Disclaimer and Limitations"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:136
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter.py:148
 msgid "Title of the Legal Disclaimer and Limitations for Downloads"
 msgstr ""
 
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:91
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:114
 msgid "URL of documentation repository "
 msgstr ""
 
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Unhide"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Unhide release project"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "Unreleased"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease.py:62
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupreleaselink.py:63
+msgid "Yes"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject.py:66
+msgid "You have not chosen a category for the project"
+msgstr ""
+
 #. Default: "No results were found."
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:97
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:166
 msgid "description_no_results_found"
 msgstr ""
 
+#. Default: "Remember to publish your release once all files have been added."
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:32
+msgid "help_message_remember_is_editable"
+msgstr ""
+
+#. Default: "No stable release available yet."
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:83
+msgid "help_not_stable_release"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:96
+msgid "in"
+msgstr ""
+
+#. Default: "Any version"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupcenter_templates/view.pt:140
+msgid "label_any_version"
+msgstr ""
+
+#. Default: "Current Release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:81
+msgid "label_current_stable_release"
+msgstr ""
+
 #. Default: "<img src=\"++resource++tdf.extensionsuploadcenter/download_icon.gif\" />"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:60
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:36
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:132
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:67
 msgid "label_extension_file"
 msgstr ""
 
-#. Default: "The Template file"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:36
+#. Default: "More about this release…"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:125
+msgid "label_release_details"
+msgstr ""
+
+#. Default: "The Extension file"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:67
 msgid "label_template_file"
 msgstr ""
 
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "re-release"
+msgstr ""
+
+#. Default: "Please don't forget to publish your release."
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:43
+msgid "suggest_publish"
+msgstr ""
+
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:109
+msgid "tested with:"
+msgstr ""
+
 #. Default: "Available Downloads"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:30
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:61
 msgid "title_available_downloads"
 msgstr ""
 
 #. Default: "Compatibility"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:25
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:55
 msgid "title_compatibility"
 msgstr ""
 
 #. Default: "Compatibility"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:48
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:249
 msgid "title_compatiblity"
 msgstr ""
 
 #. Default: "Description"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:47
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:250
 msgid "title_description"
 msgstr ""
 
 #. Default: "Development Status"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:51
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:20
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:252
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:50
 msgid "title_development_status"
 msgstr ""
 
-#. Default: "Extension"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:45
+#. Default: "Release alpha"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_alpha_release"
+msgstr ""
+
+#. Default: "Release beta"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_beta_release"
+msgstr ""
+
+#. Default: "Final Release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_final_release"
+msgstr ""
+
+#. Default: "Hide release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_hide_release"
+msgstr ""
+
+#. Default: "Re-Release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_re_release"
+msgstr ""
+
+#. Default: "Release candidate"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_release_candidate"
+msgstr ""
+
+#. Default: "Retract release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_retract_release"
+msgstr ""
+
+#. Default: "Unhide release"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/profiles/default/workflows/tdf_extensionsuploadcenter_release_workflow/definition.xml
+msgid "title_euc_wf_unhide_release"
+msgstr ""
+
+#. Default: "Extension Version"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:247
 msgid "title_extension"
 msgstr ""
 
-#. Default: "File"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:46
-msgid "title_file"
+#. Default: "Current release for the project"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:94
+msgid "title_latest_release_project"
 msgstr ""
 
 #. Default: "License(s)"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:23
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:53
 msgid "title_license_s"
 msgstr ""
 
+#. Default: "Link to Source Code"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:120
+msgid "title_link_to_sourcecode"
+msgstr ""
+
 #. Default: "License(s)"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:50
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:251
 msgid "title_lisenses"
 msgstr ""
 
 #. Default: "Platform(s)"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:49
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:248
 msgid "title_platform"
 msgstr ""
 
+#. Default: "Project Resources"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:297
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:95
+msgid "title_project_resources"
+msgstr ""
+
 #. Default: "Release Details"
-#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:18
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:48
 msgid "title_release_details"
+msgstr ""
+
+#. Default: "Screenshot"
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/eupproject_templates/view.pt:309
+#: tdf.extensionsuploadcenter/src/tdf/extensionsuploadcenter/euprelease_templates/view.pt:108
+msgid "title_screenshot"
 msgstr ""
 
