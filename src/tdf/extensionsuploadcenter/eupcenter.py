@@ -68,14 +68,13 @@ class IEUpCenter(form.Schema):
         default=['Gallery Contents',
                  'Language Tools',
                  'Dictionary',
-                 'Writer_Extension',
-                 'Calc_Extension',
-                 'Impress_Extension',
-                 'Draw_Extension',
-                 'Base_Extension',
-                 'Math_Extension',
-                 'Extension_Building',
-                 'All modules'],
+                 'Writer Extension',
+                 'Calc Extension',
+                 'Impress Extension',
+                 'Draw Extension',
+                 'Base Extension',
+                 'Math Extension',
+                 'Extension Building'],
 
         value_type=schema.TextLine())
 
