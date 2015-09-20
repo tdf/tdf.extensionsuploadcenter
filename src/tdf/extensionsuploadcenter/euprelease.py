@@ -78,10 +78,11 @@ class IEUpRelease(form.Schema):
     )
 
 
-    releasenumber=schema.Float(
+    releasenumber=schema.TextLine(
         title=_(u"Release Number"),
-        description=_(u"Release Number"),
-        default=1.0,
+        description=_(u"Release Number (up to eight chars)"),
+        default=_(u"1.0"),
+        max_length=8
     )
 
 
