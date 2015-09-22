@@ -81,7 +81,7 @@ class IEUpReleaseLink(form.Schema):
     releasenumber=schema.TextLine(
         title=_(u"Release Number"),
         description=_(u"Release Number (up to eight chars)"),
-        default=1.0,
+        default=_(u"1.0"),
         max_length=8
     )
 
